@@ -1,0 +1,17 @@
+G:\Own\SchoolCleanArchitecture\Application\bin\Debug\net7.0\Application.deps.json
+G:\Own\SchoolCleanArchitecture\Application\bin\Debug\net7.0\Application.dll
+G:\Own\SchoolCleanArchitecture\Application\bin\Debug\net7.0\Application.pdb
+G:\Own\SchoolCleanArchitecture\Application\bin\Debug\net7.0\Domain.dll
+G:\Own\SchoolCleanArchitecture\Application\bin\Debug\net7.0\Infrastructure.dll
+G:\Own\SchoolCleanArchitecture\Application\bin\Debug\net7.0\Domain.pdb
+G:\Own\SchoolCleanArchitecture\Application\bin\Debug\net7.0\Infrastructure.pdb
+G:\Own\SchoolCleanArchitecture\Application\obj\Debug\net7.0\Application.csproj.AssemblyReference.cache
+G:\Own\SchoolCleanArchitecture\Application\obj\Debug\net7.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+G:\Own\SchoolCleanArchitecture\Application\obj\Debug\net7.0\Application.AssemblyInfoInputs.cache
+G:\Own\SchoolCleanArchitecture\Application\obj\Debug\net7.0\Application.AssemblyInfo.cs
+G:\Own\SchoolCleanArchitecture\Application\obj\Debug\net7.0\Application.csproj.CoreCompileInputs.cache
+G:\Own\SchoolCleanArchitecture\Application\obj\Debug\net7.0\Application.csproj.CopyComplete
+G:\Own\SchoolCleanArchitecture\Application\obj\Debug\net7.0\Application.dll
+G:\Own\SchoolCleanArchitecture\Application\obj\Debug\net7.0\refint\Application.dll
+G:\Own\SchoolCleanArchitecture\Application\obj\Debug\net7.0\Application.pdb
+G:\Own\SchoolCleanArchitecture\Application\obj\Debug\net7.0\ref\Application.dll

@@ -1,0 +1,46 @@
+﻿[
+  {
+    "Number": 1,
+    "ParentId": null,
+    "Level": 0,
+    "IsActive": false,
+    "IsLedger": false,
+    "IsLastParent": false,
+    "EnglishName": "Assets",
+    "ArabicName": "أصول",
+    "NumberRepresentation": "*1"
+  },
+  {
+    "Number": 2,
+    "ParentId": null,
+    "Level": 0,
+    "IsActive": false,
+    "IsLedger": false,
+    "IsLastParent": false,
+    "EnglishName": "Liabilities",
+    "ArabicName": "نفقات",
+    "NumberRepresentation": "*2"
+  },
+  {
+    "Number": 3,
+    "ParentId": null,
+    "Level": 0,
+    "IsActive": false,
+    "IsLedger": false,
+    "IsLastParent": false,
+    "EnglishName": "Expenses",
+    "ArabicName": "خصوم",
+    "NumberRepresentation": "*3"
+  },
+  {
+    "Number": 4,
+    "ParentId": null,
+    "Level": 0,
+    "IsActive": false,
+    "IsLedger": false,
+    "IsLastParent": false,
+    "EnglishName": "Revenue",
+    "ArabicName": "إيرادات",
+    "NumberRepresentation": "*4"
+  }
+]

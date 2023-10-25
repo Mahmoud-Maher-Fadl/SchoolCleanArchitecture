@@ -1,0 +1,254 @@
+﻿[
+  {
+    "Code": "V001",
+    "Desc_en": "Export",
+    "Desc_ar": "تصدير للخارج",
+    "TaxTypeReference": "T1"
+  },
+  {
+    "Code": "V002",
+    "Desc_en": "Export to free areas and other areas",
+    "Desc_ar": "تصدير مناطق حرة وأخرى",
+    "TaxTypeReference": "T1"
+  },
+  {
+    "Code": "V003",
+    "Desc_en": "Exempted good or service",
+    "Desc_ar": "سلعة أو خدمة معفاة",
+    "TaxTypeReference": "T1"
+  },
+  {
+    "Code": "V004",
+    "Desc_en": "A non-taxable good or service",
+    "Desc_ar": "سلعة أو خدمة غير خاضعة للضريبة",
+    "TaxTypeReference": "T1"
+  },
+  {
+    "Code": "V005",
+    "Desc_en": "Exemptions for diplomats, consulates and embassies",
+    "Desc_ar": "إعفاءات دبلوماسين والقنصليات والسفارات",
+    "TaxTypeReference": "T1"
+  },
+  {
+    "Code": "V006",
+    "Desc_en": "Defence and National security Exemptions",
+    "Desc_ar": "إعفاءات الدفاع والأمن القومى",
+    "TaxTypeReference": "T1"
+  },
+  {
+    "Code": "V007",
+    "Desc_en": "Agreements exemptions",
+    "Desc_ar": "إعفاءات اتفاقيات",
+    "TaxTypeReference": "T1"
+  },
+  {
+    "Code": "V008",
+    "Desc_en": "Special Exemptios and other reasons",
+    "Desc_ar": "إعفاءات خاصة و أخرى",
+    "TaxTypeReference": "T1"
+  },
+  {
+    "Code": "V009",
+    "Desc_en": "General Item sales",
+    "Desc_ar": "سلع عامة",
+    "TaxTypeReference": "T1"
+  },
+  {
+    "Code": "V010",
+    "Desc_en": "Other Rates",
+    "Desc_ar": "نسب ضريبة أخرى",
+    "TaxTypeReference": "T1"
+  },
+  {
+    "Code": "Tbl01",
+    "Desc_en": "Table tax (percentage)",
+    "Desc_ar": "ضريبه الجدول (نسبيه)",
+    "TaxTypeReference": "T2"
+  },
+  {
+    "Code": "Tbl02",
+    "Desc_en": "Table tax (Fixed Amount)",
+    "Desc_ar": "ضريبه الجدول (النوعية)",
+    "TaxTypeReference": "T3"
+  },
+  {
+    "Code": "W001",
+    "Desc_en": "Contracting",
+    "Desc_ar": "المقاولات",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W002",
+    "Desc_en": "Supplies",
+    "Desc_ar": "التوريدات",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W003",
+    "Desc_en": "Purachases",
+    "Desc_ar": "المشتريات",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W004",
+    "Desc_en": "Services",
+    "Desc_ar": "الخدمات",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W005",
+    "Desc_en": "Sumspaid by the cooperative societies for car transportation to their members",
+    "Desc_ar": "المبالغالتي تدفعها الجميعات التعاونية للنقل بالسيارات لاعضائها",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W006",
+    "Desc_en": "Commissionagency & brokerage",
+    "Desc_ar": "الوكالةبالعمولة والسمسرة",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W007",
+    "Desc_en": "Discounts& grants & additional exceptional incentives granted by smoke &cement companies",
+    "Desc_ar": "الخصوماتوالمنح والحوافز الاستثنائية ةالاضافية التي تمنحها شركات الدخان والاسمنت ",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W008",
+    "Desc_en": "Alldiscounts & grants & commissions granted by petroleum &telecommunications & other companies",
+    "Desc_ar": "جميعالخصومات والمنح والعمولات  التيتمنحها  شركات البترول والاتصالات ...وغيرها من الشركات المخاطبة بنظام الخصم",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W009",
+    "Desc_en": "Supporting export subsidies",
+    "Desc_ar": "مساندة دعم الصادرات التي يمنحها صندوق تنمية الصادرات ",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W010",
+    "Desc_en": "Professional fees",
+    "Desc_ar": "اتعاب مهنية",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W011",
+    "Desc_en": "Commission & brokerage _A_57",
+    "Desc_ar": "العمولة والسمسرة _م_57",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W012",
+    "Desc_en": "Hospitals collecting from doctors",
+    "Desc_ar": "تحصيل المستشفيات من الاطباء",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W013",
+    "Desc_en": "Royalties",
+    "Desc_ar": "الاتاوات",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W014",
+    "Desc_en": "Customs clearance",
+    "Desc_ar": "تخليص جمركي ",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W015",
+    "Desc_en": "Exemption",
+    "Desc_ar": "أعفاء",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "W016",
+    "Desc_en": "advance payments",
+    "Desc_ar": "دفعات مقدمه",
+    "TaxTypeReference": "T4"
+  },
+  {
+    "Code": "ST01",
+    "Desc_en": "Stamping tax (percentage)",
+    "Desc_ar": "ضريبه الدمغه (نسبيه)",
+    "TaxTypeReference": "T5"
+  },
+  {
+    "Code": "ST02",
+    "Desc_en": "Stamping Tax (amount)",
+    "Desc_ar": "ضريبه الدمغه (قطعيه بمقدار ثابت)",
+    "TaxTypeReference": "T6"
+  },
+  {
+    "Code": "Ent01",
+    "Desc_en": "Entertainment tax (rate)",
+    "Desc_ar": "ضريبة الملاهى (نسبة)",
+    "TaxTypeReference": "T7"
+  },
+  {
+    "Code": "Ent02",
+    "Desc_en": "Entertainment tax (amount)",
+    "Desc_ar": "ضريبة الملاهى (قطعية)",
+    "TaxTypeReference": "T7"
+  },
+  {
+    "Code": "RD01",
+    "Desc_en": "Resource development fee (rate)",
+    "Desc_ar": "رسم تنميه الموارد (نسبة)",
+    "TaxTypeReference": "T8"
+  },
+  {
+    "Code": "RD02",
+    "Desc_en": "Resource development fee (amount)",
+    "Desc_ar": "رسم تنميه الموارد (قطعية)",
+    "TaxTypeReference": "T8"
+  },
+  {
+    "Code": "SC01",
+    "Desc_en": "Service charges (rate)",
+    "Desc_ar": "رسم خدمة (نسبة)",
+    "TaxTypeReference": "T9"
+  },
+  {
+    "Code": "SC02",
+    "Desc_en": "Service charges (amount)",
+    "Desc_ar": "رسم خدمة (قطعية)",
+    "TaxTypeReference": "T9"
+  },
+  {
+    "Code": "Mn01",
+    "Desc_en": "Municipality Fees (rate)",
+    "Desc_ar": "رسم المحليات (نسبة)",
+    "TaxTypeReference": "T10"
+  },
+  {
+    "Code": "Mn02",
+    "Desc_en": "Municipality Fees (amount)",
+    "Desc_ar": "رسم المحليات (قطعية)",
+    "TaxTypeReference": "T10"
+  },
+  {
+    "Code": "MI01",
+    "Desc_en": "Medical insurance fee (rate)",
+    "Desc_ar": "رسم التامين الصحى (نسبة)",
+    "TaxTypeReference": "T11"
+  },
+  {
+    "Code": "MI02",
+    "Desc_en": "Medical insurance fee (amount)",
+    "Desc_ar": "رسم التامين الصحى (قطعية)",
+    "TaxTypeReference": "T11"
+  },
+  {
+    "Code": "OF01",
+    "Desc_en": "Other fees (rate)",
+    "Desc_ar": "رسوم أخرى (نسبة)",
+    "TaxTypeReference": "T12"
+  },
+  {
+    "Code": "OF02",
+    "Desc_en": "Other fees (amount)",
+    "Desc_ar": "رسوم أخرى (قطعية)",
+    "TaxTypeReference": "T12"
+  }
+]
