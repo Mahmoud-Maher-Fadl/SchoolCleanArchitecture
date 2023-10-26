@@ -11,11 +11,11 @@ public class DepartmentConfiguration:BaseConfiguration<Domain.Model.Department.D
         builder.HasMany(d => d.Students)
             .WithOne(s => s.Department)
             .HasForeignKey(s => s.DepartmentId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.SetNull);
 
         builder.HasMany(department => department.Subjects)
             .WithOne(subject => subject.Department)
             .HasForeignKey(s=>s.DepartmentId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }

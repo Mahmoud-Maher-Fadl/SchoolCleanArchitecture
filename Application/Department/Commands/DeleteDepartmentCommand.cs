@@ -1,6 +1,7 @@
 ﻿using Application.Department.Dto;
 using Domain.common;
 using Domain.Model.Department;
+using FluentValidation;
 using Infrastructure;
 using Mapster;
 using MediatR;
@@ -10,6 +11,13 @@ namespace Application.Department.Commands;
 public class DeleteDepartmentCommand:IRequest<Result<DepartmentDto>>
 {
     public string Id { get; set; }
+    public class Validator:AbstractValidator<DeleteDepartmentCommand>
+    {
+        public Validator()
+        {
+            RuleFor(c => c.Id).NotEmpty().NotNull();
+        }
+    }
     public class Handler:IRequestHandler<DeleteDepartmentCommand,Result<DepartmentDto>>
     {
         private readonly ApplicationDbContext _context;

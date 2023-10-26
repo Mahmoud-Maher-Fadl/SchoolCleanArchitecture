@@ -20,6 +20,11 @@ public class StudentController : ApiController
     {
         return await _mediator.Send(command);
     }
+   [HttpDelete]
+    public async Task<Result>Delete(string id)
+    {
+        return await _mediator.Send(new DeleteStudentCommand(){Id = id});
+    }
     [HttpGet]
     public async Task<Result> GetAll()
     {
