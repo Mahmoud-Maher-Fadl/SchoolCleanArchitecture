@@ -22,13 +22,4 @@
       <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <_ContentIncludedByDefault Remove="Seeds\Country.json" />
-      <_ContentIncludedByDefault Remove="Seeds\Currencies.json" />
-      <_ContentIncludedByDefault Remove="Seeds\Governorates.json" />
-      <_ContentIncludedByDefault Remove="Seeds\Jobs.json" />
-      <_ContentIncludedByDefault Remove="Seeds\Towns.json" />
-      <_ContentIncludedByDefault Remove="Seeds\UnitTypes.json" />
-    </ItemGroup>
-
 </Project>
