@@ -1,11 +1,5 @@
 G:\Own\SchoolCleanArchitecture\Presentation\bin\Debug\net7.0\appsettings.Development.json
 G:\Own\SchoolCleanArchitecture\Presentation\bin\Debug\net7.0\appsettings.json
-G:\Own\SchoolCleanArchitecture\Presentation\bin\Debug\net7.0\Seeds\Country.json
-G:\Own\SchoolCleanArchitecture\Presentation\bin\Debug\net7.0\Seeds\Currencies.json
-G:\Own\SchoolCleanArchitecture\Presentation\bin\Debug\net7.0\Seeds\Governorates.json
-G:\Own\SchoolCleanArchitecture\Presentation\bin\Debug\net7.0\Seeds\Jobs.json
-G:\Own\SchoolCleanArchitecture\Presentation\bin\Debug\net7.0\Seeds\Towns.json
-G:\Own\SchoolCleanArchitecture\Presentation\bin\Debug\net7.0\Seeds\UnitTypes.json
 G:\Own\SchoolCleanArchitecture\Presentation\bin\Debug\net7.0\Presentation.exe
 G:\Own\SchoolCleanArchitecture\Presentation\bin\Debug\net7.0\Presentation.deps.json
 G:\Own\SchoolCleanArchitecture\Presentation\bin\Debug\net7.0\Presentation.runtimeconfig.json
