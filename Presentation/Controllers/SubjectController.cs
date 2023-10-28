@@ -26,9 +26,15 @@ public class SubjectController : ApiController
         return await _mediator.Send(new DeleteSubjectCommand(){Id = id});
     }
     [HttpGet]
-    public async Task<Result> GetAll()
+    public async Task<Result> GetAll( [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 10)
     {
-        return await _mediator.Send(new GetSubjectsQuery());
+        var query = new GetSubjectsQuery()
+        {
+            Page = page,
+            PageSize = pageSize,
+        };
+        return await _mediator.Send(query);
     }
     
     

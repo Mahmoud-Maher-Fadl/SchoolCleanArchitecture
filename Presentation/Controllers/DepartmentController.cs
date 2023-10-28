@@ -28,9 +28,15 @@ public class DepartmentController : ApiController
     
 
     [HttpGet]
-    public async Task<Result> GetAll()
+    public async Task<Result> GetAll( [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 10)
     {
-        return await _mediator.Send(new GetDepartmentsQuery());
+        var query = new GetDepartmentsQuery()
+        {
+            Page = page,
+            PageSize = pageSize,
+        };
+        return await _mediator.Send(query);
     }
     public DepartmentController(IMediator mediator) : base(mediator)
     {

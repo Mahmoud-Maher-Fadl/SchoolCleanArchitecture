@@ -1,4 +1,5 @@
-﻿using Application.Department.Dto;
+﻿using Application.Common;
+using Application.Department.Dto;
 using Domain.common;
 using Infrastructure;
 using Mapster;
@@ -7,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Department.Queries;
 
-public class GetDepartmentsQuery:IRequest<Result<List<DepartmentDto>>>
+public class GetDepartmentsQuery:IRequest<Result<PagingList<DepartmentDto>>>
 {
-    public class Handler:IRequestHandler<GetDepartmentsQuery,Result<List<DepartmentDto>>>
+    public int Page { get; set; }
+    public int PageSize { get; set; }
+    public class Handler:IRequestHandler<GetDepartmentsQuery,Result<PagingList<DepartmentDto>>>
     {
         private readonly ApplicationDbContext _context;
 
@@ -19,7 +22,7 @@ public class GetDepartmentsQuery:IRequest<Result<List<DepartmentDto>>>
         }
 
 
-        public async Task<Result<List<DepartmentDto>>> Handle(GetDepartmentsQuery request, CancellationToken cancellationToken)
+        public async Task<Result<PagingList<DepartmentDto>>> Handle(GetDepartmentsQuery request, CancellationToken cancellationToken)
         {
             
             /*
@@ -52,12 +55,15 @@ public class GetDepartmentsQuery:IRequest<Result<List<DepartmentDto>>>
             return departmentsDto.AsSuccessResult();*/
             
             var departments =await _context.Departments
+                .OrderBy(x=>x.Name)
+                .Skip((request.Page -1)*request.PageSize)
+                .Take(request.PageSize)
                 /*.Include(d => d.Students)
                 .ThenInclude(s=>s.Department) 
                 */
                 .ProjectToType<DepartmentDto>()
                 .ToListAsync(cancellationToken);
-            return departments.AsSuccessResult();
+            return new PagingList<DepartmentDto>(departments, request.Page, request.PageSize).AsSuccessResult();
         }
     }
 }

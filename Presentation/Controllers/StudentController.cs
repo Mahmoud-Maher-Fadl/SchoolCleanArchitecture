@@ -26,9 +26,20 @@ public class StudentController : ApiController
         return await _mediator.Send(new DeleteStudentCommand(){Id = id});
     }
     [HttpGet]
-    public async Task<Result> GetAll()
+    public async Task<Result> GetAll( [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 10)
     {
-        return await _mediator.Send(new GetStudentsQuery());
+        var query = new GetStudentsQuery()
+        {
+            Page = page,
+            PageSize = pageSize,
+        };
+        return await _mediator.Send(query);
+    }
+    [HttpGet("Search/")]
+    public async Task<Result> GetBy(string value)
+    {
+        return await _mediator.Send(new GetStudentByPredQuery(){value = value});
     }
     public StudentController(IMediator mediator) : base(mediator)
     {
