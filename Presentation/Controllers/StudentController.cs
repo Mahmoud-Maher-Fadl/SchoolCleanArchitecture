@@ -1,6 +1,7 @@
 ﻿using Application.Student.Commands;
 using Application.Student.Queries;
 using Domain.common;
+using Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,12 +28,14 @@ public class StudentController : ApiController
     }
     [HttpGet]
     public async Task<Result> GetAll( [FromQuery] int page = 1,
-        [FromQuery] int pageSize = 10)
+        [FromQuery] int pageSize = 10,[FromQuery] string search="",[FromQuery] StudentsOrderingEnum orderby=0 )
     {
         var query = new GetStudentsQuery()
         {
             Page = page,
             PageSize = pageSize,
+            Search=search,
+            OrderBy = orderby,
         };
         return await _mediator.Send(query);
     }

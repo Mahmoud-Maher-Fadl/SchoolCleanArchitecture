@@ -1,6 +1,7 @@
 ﻿using Application.Department.Commands;
 using Application.Department.Queries;
 using Domain.common;
+using Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,12 +30,14 @@ public class DepartmentController : ApiController
 
     [HttpGet]
     public async Task<Result> GetAll( [FromQuery] int page = 1,
-        [FromQuery] int pageSize = 10)
+        [FromQuery] int pageSize = 10,[FromQuery] string search="",[FromQuery] DepartmentsOrderingEnum orderby=0 )
     {
         var query = new GetDepartmentsQuery()
         {
             Page = page,
             PageSize = pageSize,
+            Search = search,
+            OrderBy = orderby,
         };
         return await _mediator.Send(query);
     }

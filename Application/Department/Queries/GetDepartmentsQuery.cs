@@ -1,6 +1,7 @@
 ﻿using Application.Common;
 using Application.Department.Dto;
 using Domain.common;
+using Domain.Enums;
 using Infrastructure;
 using Mapster;
 using MediatR;
@@ -11,7 +12,11 @@ namespace Application.Department.Queries;
 public class GetDepartmentsQuery:IRequest<Result<PagingList<DepartmentDto>>>
 {
     public int Page { get; set; }
-    public int PageSize { get; set; }
+    public int PageSize { get; set; }  
+    public string? Search { get; set; }
+
+    public DepartmentsOrderingEnum? OrderBy { get; set; }
+
     public class Handler:IRequestHandler<GetDepartmentsQuery,Result<PagingList<DepartmentDto>>>
     {
         private readonly ApplicationDbContext _context;
@@ -53,9 +58,16 @@ public class GetDepartmentsQuery:IRequest<Result<PagingList<DepartmentDto>>>
                 .ProjectToType<DepartmentDto>()
                 .ToListAsync(cancellationToken);
             return departmentsDto.AsSuccessResult();*/
-            
+            DepartmentsOrderingEnum orderByEnum = request.OrderBy ?? DepartmentsOrderingEnum.Id;
+            var filter = orderByEnum switch
+            {
+               DepartmentsOrderingEnum.Id=>"Id",
+               DepartmentsOrderingEnum.Name=>"Name",
+                _ => "Id"
+            };
             var departments =await _context.Departments
-                .OrderBy(x=>x.Name)
+                .Where(s=>s.Name.Contains(request.Search ?? string.Empty))
+                .OrderBy(( d) => EF.Property<object>(d, filter))
                 .Skip((request.Page -1)*request.PageSize)
                 .Take(request.PageSize)
                 /*.Include(d => d.Students)
@@ -63,7 +75,7 @@ public class GetDepartmentsQuery:IRequest<Result<PagingList<DepartmentDto>>>
                 */
                 .ProjectToType<DepartmentDto>()
                 .ToListAsync(cancellationToken);
-            return new PagingList<DepartmentDto>(departments, request.Page, request.PageSize).AsSuccessResult();
+            return new PagingList<DepartmentDto>(departments, request.Page, request.PageSize,request.Search,request.OrderBy).AsSuccessResult();
         }
     }
 }

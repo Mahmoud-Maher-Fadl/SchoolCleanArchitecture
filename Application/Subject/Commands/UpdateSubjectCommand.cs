@@ -5,6 +5,7 @@ using FluentValidation;
 using Infrastructure;
 using Mapster;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Subject.Commands;
 
@@ -37,7 +38,7 @@ public class UpdateSubjectCommand:IRequest<Result<SubjectDto>>
 
         public async Task<Result<SubjectDto>> Handle(UpdateSubjectCommand request, CancellationToken cancellationToken)
         {
-            var subject = await _context.Subjects.FindAsync(request.Id);
+            var subject = await _context.Subjects.Include(s=>s.Department).Include(s=>s.Students).FirstOrDefaultAsync(s=>s.Id==request.Id);
             if (subject is null)
                 return Result.Failure<SubjectDto>("Subject Not Found");
             request.Adapt(subject);
@@ -45,14 +46,12 @@ public class UpdateSubjectCommand:IRequest<Result<SubjectDto>>
             {
                 var department = await _context.Departments.FindAsync(request.DepartmentId); // After this
                                                                                              // Subject.Department will be assigned to department
-                
-                
                 if (department is null)
                 {
                     subject.DepartmentId = null;
                     return Result.Failure<SubjectDto>("Invalid Department ID");
                 }
-                //subject.Department = department;
+                subject.Department = department;
             }
             else
             {

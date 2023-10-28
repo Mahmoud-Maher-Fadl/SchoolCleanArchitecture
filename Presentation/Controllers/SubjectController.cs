@@ -1,6 +1,8 @@
 ﻿using Application.Subject.Commands;
 using Application.Subject.Queries;
 using Domain.common;
+using Domain.Enums;
+using Domain.Model.Subject;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,12 +29,14 @@ public class SubjectController : ApiController
     }
     [HttpGet]
     public async Task<Result> GetAll( [FromQuery] int page = 1,
-        [FromQuery] int pageSize = 10)
+        [FromQuery] int pageSize = 10,[FromQuery] string search="",[FromQuery] SubjectsOrderingEnum orderby=0 )
     {
         var query = new GetSubjectsQuery()
         {
             Page = page,
             PageSize = pageSize,
+            Search = search,
+            OrderBy = orderby
         };
         return await _mediator.Send(query);
     }
