@@ -1,6 +1,6 @@
 # School Clean Architecture API
-  **This is a School Clean Architecture API built with ASP.NET Core 7, Entity Framework Core, and Microsoft SQL Server.           
-    The API is designed to manage various aspects of a school, including Departments, Students, Subjects, and Employees.    
+  **This is a School Clean Architecture API built with ASP.NET Core 7, Entity Framework Core, and Microsoft SQL Server.
+    The API is designed to manage various aspects of a school, including Departments, Students, Subjects, and Employees.
     It follows a clean architecture pattern to ensure maintainability, scalability, and separation of concerns.**
 
   ## Table of Contents
