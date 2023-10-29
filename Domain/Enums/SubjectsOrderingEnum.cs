@@ -1,8 +1,9 @@
-﻿namespace Domain.Enums;
+﻿using Domain.common;
+
+namespace Domain.Enums;
 
 public enum SubjectsOrderingEnum
 {
-    Id=0,
-    Name=1,
-    DepartmentName=2,
+    Name,
+    DepartmentName,
 }

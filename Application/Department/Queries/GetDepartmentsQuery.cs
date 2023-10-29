@@ -13,9 +13,9 @@ public class GetDepartmentsQuery:IRequest<Result<PagingList<DepartmentDto>>>
 {
     public int Page { get; set; }
     public int PageSize { get; set; }  
-    public string? Search { get; set; }
+    public string Search { get; set; }=String.Empty;
 
-    public DepartmentsOrderingEnum? OrderBy { get; set; }
+    public DepartmentsOrderingEnum OrderBy { get; set; }
 
     public class Handler:IRequestHandler<GetDepartmentsQuery,Result<PagingList<DepartmentDto>>>
     {
@@ -58,15 +58,14 @@ public class GetDepartmentsQuery:IRequest<Result<PagingList<DepartmentDto>>>
                 .ProjectToType<DepartmentDto>()
                 .ToListAsync(cancellationToken);
             return departmentsDto.AsSuccessResult();*/
-            DepartmentsOrderingEnum orderByEnum = request.OrderBy ?? DepartmentsOrderingEnum.Id;
+            DepartmentsOrderingEnum orderByEnum = request.OrderBy;
             var filter = orderByEnum switch
             {
-               DepartmentsOrderingEnum.Id=>"Id",
                DepartmentsOrderingEnum.Name=>"Name",
-                _ => "Id"
+               _ => "CreateDate"
             };
             var departments =await _context.Departments
-                .Where(s=>s.Name.Contains(request.Search ?? string.Empty))
+                .Where(s=>s.Name.Contains(request.Search))
                 .OrderBy(( d) => EF.Property<object>(d, filter))
                 .Skip((request.Page -1)*request.PageSize)
                 .Take(request.PageSize)

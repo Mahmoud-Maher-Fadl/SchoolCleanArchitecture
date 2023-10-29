@@ -17,6 +17,6 @@ public class PagingList<T>
     public int PageIndex { get; }
     public int PageSize { get; }
     public string Search { get; }
-    public Enum? OrderBy { get; }
+    public Enum OrderBy { get; }
     
 }

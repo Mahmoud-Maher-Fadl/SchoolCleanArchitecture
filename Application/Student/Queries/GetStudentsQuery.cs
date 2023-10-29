@@ -13,8 +13,8 @@ public class GetStudentsQuery:IRequest<Result<PagingList<StudentDto>>>
 {
     public int Page { get; set; }
     public int PageSize { get; set; }
-    public string? Search { get; set; }
-    public StudentsOrderingEnum? OrderBy { get; set; }
+    public string Search { get; set; }=String.Empty;
+    public StudentsOrderingEnum OrderBy { get; set; }
 
     public class Handler:IRequestHandler<GetStudentsQuery,Result<PagingList<StudentDto>>>
     {
@@ -27,22 +27,22 @@ public class GetStudentsQuery:IRequest<Result<PagingList<StudentDto>>>
 
         public async Task<Result<PagingList<StudentDto>>> Handle(GetStudentsQuery request, CancellationToken cancellationToken)
         {
-            StudentsOrderingEnum orderByEnum = request.OrderBy ?? StudentsOrderingEnum.Id;
+            StudentsOrderingEnum orderByEnum = request.OrderBy;
             var filter = orderByEnum switch
             {
-                StudentsOrderingEnum.Id=>"Id",
                 StudentsOrderingEnum.Name=>"Name",
                 StudentsOrderingEnum.Address=>"Address",
                 StudentsOrderingEnum.DepartmentName=>"DepartmentName",
                 StudentsOrderingEnum.EducationLevel=>"EducationLevel",
-                _ => "Id"
+                _ => "CreateDate"
             };
             var students = await _context.Students
-                .Where(s=>s.Name.Contains(request.Search ?? string.Empty))
-                .OrderBy(( d) => EF.Property<object>(d, filter))
+                .Where(s=>s.Name.Contains(request.Search))
+                .ProjectToType<StudentDto>()
+                .OrderByDescending( d => EF.Property<object>(d, filter))
                 .Skip((request.Page -1)*request.PageSize)
                 .Take(request.PageSize)
-                .ProjectToType<StudentDto>()
+                
                 .ToListAsync(cancellationToken);
             return new PagingList<StudentDto>(students, request.Page, request.PageSize,request.Search,request.OrderBy).AsSuccessResult();
         }
