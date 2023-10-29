@@ -1,5 +1,5 @@
 # School Clean Architecture API
-  **This is a School Clean Architecture API built with ASP.NET Core 7, Entity Framework Core, and Microsoft SQL Server.  
+  **This is a School Clean Architecture API built with ASP.NET Core 7, Entity Framework Core, and Microsoft SQL Server.
     The API is designed to manage various aspects of a school, including Departments, Students, Subjects, and Employees.  
     It follows a clean architecture pattern to ensure maintainability, scalability, and separation of concerns.**
 
@@ -61,9 +61,6 @@
     Build and run the project:
       Throw Your Code Editor
 
-
-  ## You can now access the API at https://localhost:5001 (or http://localhost:5000).
-  ## Additionally, you can explore the API documentation at https://localhost:5001/swagger (or http://localhost:5000/swagger).
 
   ## Project Structure
     The project follows a clean architecture pattern, which includes the following layers:
