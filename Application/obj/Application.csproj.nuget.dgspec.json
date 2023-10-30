@@ -1,30 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Own\\SchoolCleanArchitecture\\Application\\Application.csproj": {}
+    "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Application\\Application.csproj": {}
   },
   "projects": {
-    "G:\\Own\\SchoolCleanArchitecture\\Application\\Application.csproj": {
+    "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Own\\SchoolCleanArchitecture\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "G:\\Own\\SchoolCleanArchitecture\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "G:\\Own\\SchoolCleanArchitecture\\Application\\obj\\",
+        "projectPath": "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\DEVELOPER2-PC\\.nuget\\packages\\",
+        "outputPath": "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"
         ],
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\DEVELOPER2-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -32,11 +33,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "G:\\Own\\SchoolCleanArchitecture\\Domain\\Domain.csproj": {
-                "projectPath": "G:\\Own\\SchoolCleanArchitecture\\Domain\\Domain.csproj"
+              "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Domain\\Domain.csproj"
               },
-              "G:\\Own\\SchoolCleanArchitecture\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "G:\\Own\\SchoolCleanArchitecture\\Infrastructure\\Infrastructure.csproj"
+              "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -88,31 +89,32 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "G:\\Own\\SchoolCleanArchitecture\\Domain\\Domain.csproj": {
+    "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Own\\SchoolCleanArchitecture\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "G:\\Own\\SchoolCleanArchitecture\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "G:\\Own\\SchoolCleanArchitecture\\Domain\\obj\\",
+        "projectPath": "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\DEVELOPER2-PC\\.nuget\\packages\\",
+        "outputPath": "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"
         ],
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\DEVELOPER2-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -157,31 +159,32 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "G:\\Own\\SchoolCleanArchitecture\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Own\\SchoolCleanArchitecture\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "G:\\Own\\SchoolCleanArchitecture\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "G:\\Own\\SchoolCleanArchitecture\\Infrastructure\\obj\\",
+        "projectPath": "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\DEVELOPER2-PC\\.nuget\\packages\\",
+        "outputPath": "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"
         ],
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\DEVELOPER2-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -189,8 +192,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "G:\\Own\\SchoolCleanArchitecture\\Domain\\Domain.csproj": {
-                "projectPath": "G:\\Own\\SchoolCleanArchitecture\\Domain\\Domain.csproj"
+              "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Mahmoud Fadl\\SchoolCleanArchitecture\\Domain\\Domain.csproj"
               }
             }
           }
@@ -246,7 +249,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

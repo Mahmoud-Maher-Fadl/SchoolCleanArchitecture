@@ -53,6 +53,23 @@ public abstract class BaseSqlRepositoryImpl<T> : IBaseRepository<T> where T : Ba
         }
     }
 
+    public Task<List<T>> GetAllAsync(params Expression<Func<T, object>>[] includedProperties)
+    {
+        try
+        {
+            var query = table.AsQueryable();
+            foreach (var includedProperty in includedProperties)
+                query.Include(includedProperty);
+            return query.ToListAsync();
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return Task.FromResult(new List<T>());
+        }
+    }
+
     public async Task<Result<T[]>> AddRange(T[] entities,
         CancellationToken cancellationToken = default)
     {
