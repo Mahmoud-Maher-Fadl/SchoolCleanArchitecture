@@ -2,6 +2,7 @@
 using Application.Department.Dto;
 using Domain.common;
 using Domain.Enums;
+using Domain.Model.Department;
 using Infrastructure;
 using Mapster;
 using MediatR;
@@ -20,10 +21,12 @@ public class GetDepartmentsQuery:IRequest<Result<PagingList<DepartmentDto>>>
     public class Handler:IRequestHandler<GetDepartmentsQuery,Result<PagingList<DepartmentDto>>>
     {
         private readonly ApplicationDbContext _context;
+        private readonly IDepartmentRepository _departmentRepository;
 
-        public Handler(ApplicationDbContext context)
+        public Handler(ApplicationDbContext context, IDepartmentRepository departmentRepository)
         {
             _context = context;
+            _departmentRepository = departmentRepository;
         }
 
 
@@ -64,6 +67,7 @@ public class GetDepartmentsQuery:IRequest<Result<PagingList<DepartmentDto>>>
                DepartmentsOrderingEnum.Name=>"Name",
                _ => "CreateDate"
             };
+            var depts = await _departmentRepository.GetAllAsync(d => d.Students!, d => d.Subjects!);
             var departments =await _context.Departments
                 .Where(s=>s.Name.Contains(request.Search))
                 .OrderBy(( d) => EF.Property<object>(d, filter))
