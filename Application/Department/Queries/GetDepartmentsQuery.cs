@@ -1,9 +1,9 @@
 ﻿using Application.Common;
 using Application.Department.Dto;
-using Application.Enums;
 using Domain.common;
-using Infrastructure;
+using Application.Enums;
 using Domain.Model.Department;
+using Infrastructure;
 using Mapster;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
