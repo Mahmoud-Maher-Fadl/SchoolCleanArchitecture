@@ -1,7 +1,7 @@
 ﻿using Application.Common;
+using Application.Enums;
 using Application.Subject.Dto;
 using Domain.common;
-using Domain.Enums;
 using Infrastructure;
 using Mapster;
 using MediatR;

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RKcCQx+/C0lHqaQ584dXyljg1o5D0t8Pf3V13q35aJrMZs+1ox0JqA4PQayT/nQHT3XpVF7CK97D6NFRf/y1Dw==",
+  "dgSpecHash": "gQxG4hBMxFVN44N5WgyarzrEZq3An1WkBF8XUBCO6DtItHXPyisUqlyMNrrQ4qNgdwCqpQh2/CjTzeewXPZItA==",
   "success": true,
   "projectFilePath": "G:\\Own\\SchoolCleanArchitecture\\Presentation\\Presentation.csproj",
   "expectedPackageFiles": [
@@ -36,6 +36,7 @@
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\7.0.0\\microsoft.extensions.hosting.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.20\\microsoft.extensions.identity.core.6.0.20.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.20\\microsoft.extensions.identity.stores.6.0.20.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\8.0.0-rc.2.23480.2\\microsoft.extensions.localization.abstractions.8.0.0-rc.2.23480.2.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",

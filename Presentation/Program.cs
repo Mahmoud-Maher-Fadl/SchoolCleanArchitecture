@@ -1,9 +1,34 @@
+using System.Globalization;
 using System.Text.Json.Serialization;
 using Erp;
 using Erp.Services;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+#region Localization Service
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddLocalization(opt =>
+{
+    opt.ResourcesPath = "";
+});
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    List<CultureInfo> supportedCultures = new List<CultureInfo>
+    {
+        new CultureInfo("ar-EG"),
+        new CultureInfo("en-US"),
+    };
+    options.DefaultRequestCulture = new RequestCulture("en-US");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
+
+#endregion
+
 builder.Services
     .AddControllers()
     .AddJsonOptions(opts => opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
@@ -22,6 +47,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+#region Localization Middleware
+
+var options = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
+app.UseRequestLocalization(options!.Value);
+
+
+#endregion
 
 
 app.UseAuthorization();

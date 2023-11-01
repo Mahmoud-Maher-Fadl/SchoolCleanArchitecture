@@ -16,6 +16,33 @@
       <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.6.0" />
       <PackageReference Include="Mapster" Version="7.4.0-pre06" />
       <PackageReference Include="MediatR" Version="11.1.0" />
+      <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="8.0.0-rc.2.23480.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Localization\SharedResources.Ar.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>SharedResources.Ar.Designer.cs</LastGenOutput>
+        <DependentUpon>SharedResources.cs</DependentUpon>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Localization\SharedResources.En.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>SharedResources.En.Designer.cs</LastGenOutput>
+        <DependentUpon>SharedResources.cs</DependentUpon>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Localization\SharedResources.Ar.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>SharedResources.Ar.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Localization\SharedResources.En.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>SharedResources.En.resx</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

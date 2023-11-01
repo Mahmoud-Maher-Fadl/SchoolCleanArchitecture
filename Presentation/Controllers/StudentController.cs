@@ -1,7 +1,7 @@
-﻿using Application.Student.Commands;
+﻿using Application.Enums;
+using Application.Student.Commands;
 using Application.Student.Queries;
 using Domain.common;
-using Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

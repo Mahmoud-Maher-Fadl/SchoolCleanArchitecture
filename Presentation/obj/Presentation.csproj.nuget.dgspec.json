@@ -66,6 +66,10 @@
             "MediatR": {
               "target": "Package",
               "version": "[11.1.0, )"
+            },
+            "Microsoft.Extensions.Localization.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0-rc.2.23480.2, )"
             }
           },
           "imports": [

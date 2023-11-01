@@ -1,6 +1,4 @@
-﻿using Domain.common;
-
-namespace Domain.Enums;
+﻿namespace Application.Enums;
 
 public enum SubjectsOrderingEnum
 {

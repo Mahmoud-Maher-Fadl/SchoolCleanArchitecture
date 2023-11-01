@@ -15,3 +15,12 @@ G:\Own\SchoolCleanArchitecture\Application\obj\Release\net7.0\Application.dll
 G:\Own\SchoolCleanArchitecture\Application\obj\Release\net7.0\refint\Application.dll
 G:\Own\SchoolCleanArchitecture\Application\obj\Release\net7.0\Application.pdb
 G:\Own\SchoolCleanArchitecture\Application\obj\Release\net7.0\ref\Application.dll
+G:\Own\SchoolCleanArchitecture\Application\bin\Release\net7.0\Ar\Application.resources.dll
+G:\Own\SchoolCleanArchitecture\Application\bin\Release\net7.0\En\Application.resources.dll
+G:\Own\SchoolCleanArchitecture\Application\obj\Release\net7.0\Application.Localization.SharedResources.Ar.resources
+G:\Own\SchoolCleanArchitecture\Application\obj\Release\net7.0\Application.Localization.SharedResources.En.resources
+G:\Own\SchoolCleanArchitecture\Application\obj\Release\net7.0\Application.csproj.GenerateResource.cache
+G:\Own\SchoolCleanArchitecture\Application\obj\Release\net7.0\Ar\Application.resources.cs
+G:\Own\SchoolCleanArchitecture\Application\obj\Release\net7.0\Ar\Application.resources.dll
+G:\Own\SchoolCleanArchitecture\Application\obj\Release\net7.0\En\Application.resources.cs
+G:\Own\SchoolCleanArchitecture\Application\obj\Release\net7.0\En\Application.resources.dll

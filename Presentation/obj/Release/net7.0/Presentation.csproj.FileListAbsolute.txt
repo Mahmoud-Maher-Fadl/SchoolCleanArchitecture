@@ -88,3 +88,6 @@ G:\Own\SchoolCleanArchitecture\Presentation\obj\Release\net7.0\refint\Presentati
 G:\Own\SchoolCleanArchitecture\Presentation\obj\Release\net7.0\Presentation.pdb
 G:\Own\SchoolCleanArchitecture\Presentation\obj\Release\net7.0\Presentation.genruntimeconfig.cache
 G:\Own\SchoolCleanArchitecture\Presentation\obj\Release\net7.0\ref\Presentation.dll
+G:\Own\SchoolCleanArchitecture\Presentation\bin\Release\net7.0\Microsoft.Extensions.Localization.Abstractions.dll
+G:\Own\SchoolCleanArchitecture\Presentation\bin\Release\net7.0\Ar\Application.resources.dll
+G:\Own\SchoolCleanArchitecture\Presentation\bin\Release\net7.0\En\Application.resources.dll

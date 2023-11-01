@@ -1,7 +1,7 @@
 ﻿using Application.Department.Commands;
 using Application.Department.Queries;
+using Application.Enums;
 using Domain.common;
-using Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
