@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure;
 
-public class ApplicationDbContext:DbContext
+public class ApplicationDbContext:IdentityDbContext<Domain.Identity.User>
 {
    
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
@@ -24,4 +25,5 @@ public class ApplicationDbContext:DbContext
     public DbSet<Domain.Model.Department.Department>Departments { get; set; }
     public DbSet<Domain.Model.Student.Student>Students { get; set; }
     public DbSet<Domain.Model.Subject.Subject>Subjects { get; set; }
+    public DbSet<Domain.Identity.User>Users { get; set; }
 }
