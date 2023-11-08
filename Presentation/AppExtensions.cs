@@ -2,7 +2,7 @@
 using Infrastructure.common;
 using Microsoft.EntityFrameworkCore;
 
-namespace Erp;
+namespace SchoolCleanArchitecture;
 
 public static class AppExtensions
 {

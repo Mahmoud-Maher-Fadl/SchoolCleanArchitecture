@@ -1,7 +1,6 @@
-﻿using Domain.common;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 namespace Domain.Identity;
-public class User:IdentityUser
+public class SchoolUser:IdentityUser
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }

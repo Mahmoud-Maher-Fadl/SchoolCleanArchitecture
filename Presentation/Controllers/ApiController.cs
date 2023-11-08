@@ -2,7 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Erp.Controllers;
+namespace SchoolCleanArchitecture.Controllers;
 
 public abstract class ApiController : ControllerBase
 {

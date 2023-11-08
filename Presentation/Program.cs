@@ -1,9 +1,12 @@
 using System.Globalization;
 using System.Text.Json.Serialization;
-using Erp;
-using Erp.Services;
+using Domain.Identity;
+using Infrastructure;
+using Microsoft.AspNetCore.Identity;
+using SchoolCleanArchitecture;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
+using SchoolCleanArchitecture.Services;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,10 +35,15 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 builder.Services
     .AddControllers()
     .AddJsonOptions(opts => opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.InstallServicesInAssembly(builder.Configuration);
+
+/*builder.Services.AddIdentity<SchoolUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();*/
+
+
 builder.Services.AddHttpContextAccessor();
 builder.Logging.ClearProviders();
 builder.Host.UseSerilog((context, _, configuration) => configuration.ReadFrom.Configuration(context.Configuration));

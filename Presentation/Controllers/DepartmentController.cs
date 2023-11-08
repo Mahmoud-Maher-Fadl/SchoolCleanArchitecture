@@ -5,7 +5,7 @@ using Domain.common;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Erp.Controllers;
+namespace SchoolCleanArchitecture.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 public class DepartmentController : ApiController

@@ -1,10 +1,9 @@
 ﻿using System.Reflection;
 using Application.Department.Commands;
-using Erp.middleware;
+using SchoolCleanArchitecture.middleware;
 using FluentValidation;
 using MediatR;
-
-namespace Erp.Services.Installer;
+namespace SchoolCleanArchitecture.Services.Installer;
 
 public class MediatorInstaller : IServiceInstaller
 {

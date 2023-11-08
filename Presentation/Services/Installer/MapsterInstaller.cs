@@ -2,7 +2,7 @@
 using Mapster;
 using MapsterMapper;
 
-namespace Erp.Services.Installer;
+namespace SchoolCleanArchitecture.Services.Installer;
 
 public class MapsterInstaller : IServiceInstaller
 {

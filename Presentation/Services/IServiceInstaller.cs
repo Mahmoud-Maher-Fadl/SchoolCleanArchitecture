@@ -1,11 +1,11 @@
-﻿namespace Erp.Services;
+﻿namespace SchoolCleanArchitecture.Services;
 
 public interface IServiceInstaller
 {
     void InstallServices(IServiceCollection services, IConfiguration configuration);
 }
 
-public static class IServiceInstallerExtensions
+public static class ServiceInstallerExtensions
 {
     public static void InstallServicesInAssembly(this IServiceCollection services, IConfiguration configuration)
     {

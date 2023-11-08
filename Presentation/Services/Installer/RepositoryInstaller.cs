@@ -2,7 +2,7 @@
 using Infrastructure;
 using Infrastructure.common;
 
-namespace Erp.Services.Installer;
+namespace SchoolCleanArchitecture.Services.Installer;
 
 public class RepositoryInstaller : IServiceInstaller
 {

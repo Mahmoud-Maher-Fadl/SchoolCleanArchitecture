@@ -38,8 +38,8 @@ public class CreateUserCommand:IRequest<Result<UserDto>>
     }
     public class Handler:IRequestHandler<CreateUserCommand,Result<UserDto>>
     {
-        private readonly UserManager<Domain.Identity.User> _userManager;
-        public Handler(UserManager<Domain.Identity.User> userManager)
+        private readonly UserManager<Domain.Identity.SchoolUser> _userManager;
+        public Handler(UserManager<Domain.Identity.SchoolUser> userManager)
         {
             _userManager = userManager;
         }
@@ -53,13 +53,32 @@ public class CreateUserCommand:IRequest<Result<UserDto>>
             if (isExistUserName is not null)
                 return Result.Failure<UserDto>($"This User Name {request.UserName} Is Already Used");
             
-            var user = request.Adapt<Domain.Identity.User>();
+            var user = request.Adapt<Domain.Identity.SchoolUser>();
             var password = _userManager.PasswordHasher.HashPassword(user,request.Password);
-            user.PasswordHash = password;
-            var result = await _userManager.CreateAsync(user);
-            return result.Succeeded
-                ? result.ToString().Adapt<UserDto>().AsSuccessResult()
+            //user.PasswordHash = password;
+            var result = await _userManager.CreateAsync(user,request.Password);
+            /*return result.Succeeded
+                ? result.Adapt<UserDto>().AsSuccessResult()
                 : Result.Failure<UserDto>(result.Errors.ToString() ?? string.Empty);
+                */
+            if (result.Succeeded)
+            {
+                // Fetch the user from the database after successful creation
+                var createdUser = await _userManager.FindByNameAsync(user.UserName);
+
+                // Adapt the fetched user to UserDto
+                var userDto = createdUser.Adapt<UserDto>();
+
+                // Return success result with UserDto
+                return Result.Success(userDto);
+            }
+            
+            else
+            {
+                // Return failure result with error messages
+                return Result.Failure<UserDto>(result.Errors.FirstOrDefault()?.Description ?? "User creation failed.");
+            }
+
         }
     }
 }

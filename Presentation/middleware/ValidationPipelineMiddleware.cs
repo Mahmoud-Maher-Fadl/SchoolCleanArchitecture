@@ -2,7 +2,7 @@ using Domain.common;
 using FluentValidation;
 using MediatR;
 
-namespace Erp.middleware;
+namespace SchoolCleanArchitecture.middleware;
 
 public class ValidationPipelineMiddleware<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>

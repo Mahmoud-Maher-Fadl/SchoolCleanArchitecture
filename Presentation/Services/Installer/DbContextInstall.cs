@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace Erp.Services.Installer;
+namespace SchoolCleanArchitecture.Services.Installer;
 
 public class DbContextInstall : IServiceInstaller
 {
@@ -11,8 +11,8 @@ public class DbContextInstall : IServiceInstaller
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")!,
                 x => x.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
-        services
+        /*services
             .AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-            .AddEntityFrameworkStores<ApplicationDbContext>();
+            .AddEntityFrameworkStores<ApplicationDbContext>();*/
     }
 }
