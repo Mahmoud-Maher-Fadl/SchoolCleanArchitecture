@@ -42,7 +42,6 @@ public class GetStudentsQuery:IRequest<Result<PagingList<StudentDto>>>
                 .OrderByDescending( d => EF.Property<object>(d, filter))
                 .Skip((request.Page -1)*request.PageSize)
                 .Take(request.PageSize)
-                
                 .ToListAsync(cancellationToken);
             return new PagingList<StudentDto>(students, request.Page, request.PageSize,request.Search,request.OrderBy).AsSuccessResult();
         }

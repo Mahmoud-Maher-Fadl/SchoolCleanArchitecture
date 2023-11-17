@@ -1,15 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Application.User.Dto;
 using Domain.common;
+using Domain.Identity;
 using FluentValidation;
+using Infrastructure;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.User.Commands;
 
-public class CreateUserCommand:IRequest<Result<UserDto>>
+public class UpdateUserCommand:IRequest<Result<UserDto>>
 {
+    public string Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Address { get; set; }
@@ -20,8 +24,8 @@ public class CreateUserCommand:IRequest<Result<UserDto>>
     public string Password { get; set; }
     [Compare("Password")]
     public string ConfirmPassword { get; set; }
-
-    public class Validator:AbstractValidator<CreateUserCommand>
+    
+    public class Validator:AbstractValidator<UpdateUserCommand>
     {
         public Validator()
         {
@@ -35,15 +39,21 @@ public class CreateUserCommand:IRequest<Result<UserDto>>
             RuleFor(x => x.ConfirmPassword).NotEmpty();
         }   
     }
-    public class Handler:IRequestHandler<CreateUserCommand,Result<UserDto>>
+    public class Handler:IRequestHandler<UpdateUserCommand,Result<UserDto>>
     {
-        private readonly UserManager<Domain.Identity.SchoolUser> _userManager;
-        public Handler(UserManager<Domain.Identity.SchoolUser> userManager)
+        private readonly UserManager<SchoolUser> _userManager;
+
+        public Handler(UserManager<SchoolUser> userManager)
         {
             _userManager = userManager;
         }
-        public async Task<Result<UserDto>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+
+        public async Task<Result<UserDto>> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
+            var user = await _userManager.FindByIdAsync(request.Id);
+            if(user is null)
+                return Result.Failure<UserDto>("User Doesn't Exist");
+            
             var isExitEmail =await _userManager.FindByEmailAsync(request.Email);
             if (isExitEmail is not null)
                 return Result.Failure<UserDto>($"This E-mail {request.Email} Is Already Used");
@@ -51,23 +61,15 @@ public class CreateUserCommand:IRequest<Result<UserDto>>
             var isExistUserName = await _userManager.FindByNameAsync(request.UserName);
             if (isExistUserName is not null)
                 return Result.Failure<UserDto>($"This User Name {request.UserName} Is Already Used");
-            
-            var user = request.Adapt<Domain.Identity.SchoolUser>();
-            var password = _userManager.PasswordHasher.HashPassword(user,request.Password);
-            //user.PasswordHash = password;
-            var result = await _userManager.CreateAsync(user,request.Password);
+
+            request.Adapt(user);
+            var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
-                // Return success result with UserDto
                 return Result.Success(user.Adapt<UserDto>());
             }
-            
             else
-            {
-                // Return failure result with error messages
-                return Result.Failure<UserDto>(result.Errors.FirstOrDefault()?.Description ?? "User creation failed.");
-            }
-
+                return Result.Failure<UserDto>(result.Errors.FirstOrDefault()?.Description ?? "User Update failed.");
         }
     }
 }
