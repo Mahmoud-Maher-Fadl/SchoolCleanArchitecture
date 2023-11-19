@@ -41,9 +41,9 @@ public class UpdateUserCommand:IRequest<Result<UserDto>>
     }
     public class Handler:IRequestHandler<UpdateUserCommand,Result<UserDto>>
     {
-        private readonly UserManager<SchoolUser> _userManager;
+        private readonly UserManager<Domain.Identity.User> _userManager;
 
-        public Handler(UserManager<SchoolUser> userManager)
+        public Handler(UserManager<Domain.Identity.User> userManager)
         {
             _userManager = userManager;
         }

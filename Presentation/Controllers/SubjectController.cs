@@ -4,11 +4,14 @@ using Application.Subject.Queries;
 using Domain.common;
 using Domain.Model.Subject;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SchoolCleanArchitecture.Controllers;
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
+
 public class SubjectController : ApiController
 {
     [HttpPost]

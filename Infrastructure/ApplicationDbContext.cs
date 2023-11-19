@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure;
 
-public class ApplicationDbContext:IdentityDbContext<Domain.Identity.SchoolUser>
+public class ApplicationDbContext:IdentityDbContext<Domain.Identity.User>
 {
    
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
@@ -25,5 +25,5 @@ public class ApplicationDbContext:IdentityDbContext<Domain.Identity.SchoolUser>
     public DbSet<Domain.Model.Department.Department>Departments { get; set; }
     public DbSet<Domain.Model.Student.Student>Students { get; set; }
     public DbSet<Domain.Model.Subject.Subject>Subjects { get; set; }
-    public DbSet<Domain.Identity.SchoolUser>SchoolUsers { get; set; }
+    public DbSet<Domain.Identity.User>Users { get; set; }
 }

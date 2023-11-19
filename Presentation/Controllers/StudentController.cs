@@ -3,11 +3,13 @@ using Application.Student.Commands;
 using Application.Student.Queries;
 using Domain.common;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SchoolCleanArchitecture.Controllers;
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 
 public class StudentController : ApiController
 {

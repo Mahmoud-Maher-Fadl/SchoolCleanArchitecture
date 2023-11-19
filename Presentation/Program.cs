@@ -1,8 +1,7 @@
 using System.Globalization;
 using System.Text.Json.Serialization;
-using Domain.Identity;
-using Infrastructure;
-using Microsoft.AspNetCore.Identity;
+using Domain.JWT;
+using Infrastructure.JWT;
 using SchoolCleanArchitecture;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
@@ -39,10 +38,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.InstallServicesInAssembly(builder.Configuration);
 
-/*builder.Services.AddIdentity<SchoolUser, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders();*/
 
+builder.Services.AddTransient<IJwtService, JwtService>();
 
 builder.Services.AddHttpContextAccessor();
 builder.Logging.ClearProviders();
@@ -65,8 +62,8 @@ app.UseRequestLocalization(options!.Value);
 #endregion
 
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 app.UseSerilogRequestLogging();
 app.MapControllers();
 app.Run();

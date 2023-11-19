@@ -11,9 +11,9 @@ public class GetUsersQuery:IRequest<Result<List<UserDto>>>
 {
     public class Handler:IRequestHandler<GetUsersQuery,Result<List<UserDto>>>
     {
-        private readonly UserManager<Domain.Identity.SchoolUser> _userManager;
+        private readonly UserManager<Domain.Identity.User> _userManager;
 
-        public Handler(UserManager<Domain.Identity.SchoolUser> userManager)
+        public Handler(UserManager<Domain.Identity.User> userManager)
         {
             _userManager = userManager;
         }

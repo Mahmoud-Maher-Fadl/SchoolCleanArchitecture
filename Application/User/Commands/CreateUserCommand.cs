@@ -37,8 +37,8 @@ public class CreateUserCommand:IRequest<Result<UserDto>>
     }
     public class Handler:IRequestHandler<CreateUserCommand,Result<UserDto>>
     {
-        private readonly UserManager<Domain.Identity.SchoolUser> _userManager;
-        public Handler(UserManager<Domain.Identity.SchoolUser> userManager)
+        private readonly UserManager<Domain.Identity.User> _userManager;
+        public Handler(UserManager<Domain.Identity.User> userManager)
         {
             _userManager = userManager;
         }
@@ -52,7 +52,7 @@ public class CreateUserCommand:IRequest<Result<UserDto>>
             if (isExistUserName is not null)
                 return Result.Failure<UserDto>($"This User Name {request.UserName} Is Already Used");
             
-            var user = request.Adapt<Domain.Identity.SchoolUser>();
+            var user = request.Adapt<Domain.Identity.User>();
             var password = _userManager.PasswordHasher.HashPassword(user,request.Password);
             //user.PasswordHash = password;
             var result = await _userManager.CreateAsync(user,request.Password);

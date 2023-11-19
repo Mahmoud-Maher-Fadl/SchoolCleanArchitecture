@@ -24,10 +24,10 @@ public class ChangeUserPasswordCommand:IRequest<Result<UserDto>>
     }
     public class Handler:IRequestHandler<ChangeUserPasswordCommand,Result<UserDto>>
     {
-        private readonly UserManager<SchoolUser> _userManager;
-        private readonly IPasswordHasher<SchoolUser> _passwordHasher;
+        private readonly UserManager<Domain.Identity.User> _userManager;
+        private readonly IPasswordHasher<Domain.Identity.User> _passwordHasher;
 
-        public Handler(UserManager<SchoolUser> userManager, IPasswordHasher<SchoolUser> passwordHasher)
+        public Handler(UserManager<Domain.Identity.User> userManager, IPasswordHasher<Domain.Identity.User> passwordHasher)
         {
             _userManager = userManager;
             _passwordHasher = passwordHasher;

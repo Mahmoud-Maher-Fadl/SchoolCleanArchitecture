@@ -3,11 +3,13 @@ using Application.Department.Queries;
 using Application.Enums;
 using Domain.common;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SchoolCleanArchitecture.Controllers;
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class DepartmentController : ApiController
 {
     [HttpPost]

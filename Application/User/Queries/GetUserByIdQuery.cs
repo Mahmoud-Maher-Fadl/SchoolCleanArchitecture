@@ -1,6 +1,5 @@
 ﻿using Application.User.Dto;
 using Domain.common;
-using Domain.Identity;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -12,9 +11,9 @@ public class GetUserByIdQuery:IRequest<Result<UserDto>>
     public string Id { get; set; }
     public class Handler:IRequestHandler<GetUserByIdQuery,Result<UserDto>>
     {
-        private readonly UserManager<SchoolUser> _userManager;
+        private readonly UserManager<Domain.Identity.User> _userManager;
 
-        public Handler(UserManager<SchoolUser> userManager)
+        public Handler(UserManager<Domain.Identity.User> userManager)
         {
             _userManager = userManager;
         }

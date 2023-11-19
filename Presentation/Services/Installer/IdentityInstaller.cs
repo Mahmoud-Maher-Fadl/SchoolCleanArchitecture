@@ -1,4 +1,5 @@
-﻿using Infrastructure;
+﻿using Domain.JWT;
+using Infrastructure;
 using Microsoft.AspNetCore.Identity;
 namespace SchoolCleanArchitecture.Services.Installer;
 
@@ -6,7 +7,7 @@ public class IdentityInstaller:IServiceInstaller
 {
   public void InstallServices(IServiceCollection service, IConfiguration configuration)
   {
-      service.AddIdentity<Domain.Identity.SchoolUser,IdentityRole>(option =>
+      service.AddIdentity<Domain.Identity.User,IdentityRole>(option =>
       {
           option.SignIn.RequireConfirmedEmail = false;
           option.User.RequireUniqueEmail = false;
@@ -16,5 +17,8 @@ public class IdentityInstaller:IServiceInstaller
           option.Password.RequiredLength = 5;
           option.Lockout.MaxFailedAccessAttempts = 3;
       }).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+      
+      
+      
   }
 }

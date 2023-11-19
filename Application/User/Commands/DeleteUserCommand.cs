@@ -1,10 +1,8 @@
 ﻿using Application.User.Dto;
 using Domain.common;
-using Domain.Identity;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Application.User.Commands;
 
@@ -13,9 +11,9 @@ public class DeleteUserCommand:IRequest<Result<UserDto>>
     public string Id { get; set; } 
     public class Handler:IRequestHandler<DeleteUserCommand,Result<UserDto>>
     {
-        private readonly UserManager<SchoolUser> _userManager;
+        private readonly UserManager<Domain.Identity.User> _userManager;
 
-        public Handler(UserManager<SchoolUser> userManager)
+        public Handler(UserManager<Domain.Identity.User> userManager)
         {
             _userManager = userManager;
         }
