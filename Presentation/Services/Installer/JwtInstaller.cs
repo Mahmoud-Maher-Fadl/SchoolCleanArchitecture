@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Domain.JWT;
+using Infrastructure.JWT;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
@@ -14,7 +15,8 @@ public class JwtInstaller:IServiceInstaller
         var jwtOptions = new JwtOptions();
         configuration.GetSection(nameof(jwtOptions)).Bind(jwtOptions);
         services.AddSingleton(jwtOptions);
-        
+        services.AddTransient<IJwtService, JwtService>();
+
         
         services.AddAuthentication(x =>
             {
@@ -29,7 +31,7 @@ public class JwtInstaller:IServiceInstaller
                     {
                         ValidateIssuer = jwtOptions.ValidateIssuer,
                         ValidIssuers = new []{jwtOptions.Issuer},
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Secret)),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Key)),
                         ValidateIssuerSigningKey = jwtOptions.ValidateIssuerSigningKey,
                         ValidAudience = jwtOptions.Audience,
                         ValidateAudience = jwtOptions.ValidateAudience,

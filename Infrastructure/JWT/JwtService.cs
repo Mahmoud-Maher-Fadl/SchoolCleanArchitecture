@@ -23,7 +23,7 @@ public class JwtService:IJwtService
             new Claim(nameof(Domain.Identity.User.Email),user.Email),
             new Claim(nameof(Domain.Identity.User.PhoneNumber),user.PhoneNumber),
         };
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.Secret));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.Key));
         var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
         var token = new JwtSecurityToken
         (
