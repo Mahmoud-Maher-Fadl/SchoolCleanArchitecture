@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Text.Json.Serialization;
+using Application.Department.Dto;
 using Domain.JWT;
 using Infrastructure.JWT;
 using SchoolCleanArchitecture;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using SchoolCleanArchitecture.Services;
 using Serilog;
+using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,7 @@ builder.Services
     .AddJsonOptions(opts => opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerExamplesFromAssemblyOf(typeof(DepartmentDto));
 builder.Services.InstallServicesInAssembly(builder.Configuration);
 
 

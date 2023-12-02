@@ -21,7 +21,7 @@ public abstract class BaseConfiguration<T> : IEntityTypeConfiguration<T> where T
             .HasValueGenerator<DatabaseDateGenerator>()
             .ValueGeneratedOnUpdate();
         
-            Configure(builder, typeof(T).Name);
+        Configure(builder, typeof(T).Name);
     }
 
     protected abstract void Configure(EntityTypeBuilder<T> builder, string tableName);

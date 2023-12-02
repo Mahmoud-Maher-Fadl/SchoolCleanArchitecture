@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using Application.Department.Commands;
+using Application.Department.Commands.Create;
 using SchoolCleanArchitecture.middleware;
 using FluentValidation;
 using MediatR;

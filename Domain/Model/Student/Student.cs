@@ -10,7 +10,7 @@ public class Student:BaseEntity
     public string? DepartmentId { get; set; }
     public Department.Department? Department { get; set; }
 
-    public List<Subject.Subject> Subjects { get; set; } = new List<Subject.Subject>();
+    public HashSet<Subject.Subject> Subjects { get; set; } = new HashSet<Subject.Subject>();
     /*public virtual Department.Department Department { get; set; }
     public virtual List<Subject.Subject> Subjects { get; set; }*/
 

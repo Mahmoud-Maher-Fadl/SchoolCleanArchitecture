@@ -10,6 +10,7 @@ public class StudentDto:IRegister
     public string Address { get; set; }
     public string Phone { get; set; }
     public string? DepartmentName { get; set; }
+    public DateTime CreateDate { get; set; }
     public List<string>? SubjectsNames { get; set; } = new List<string>();
 
 

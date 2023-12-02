@@ -17,7 +17,7 @@ namespace Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.20")
+                .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -127,6 +127,45 @@ namespace Infrastructure.Migrations
                     b.ToTable("Departments", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Model.Instructor.Instructor", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DepartmentId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.ToTable("Instructors", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Model.Student.Student", b =>
                 {
                     b.Property<string>("Id")
@@ -179,6 +218,10 @@ namespace Infrastructure.Migrations
                     b.Property<int>("Hours")
                         .HasColumnType("int");
 
+                    b.Property<string>("InstructorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -190,6 +233,8 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DepartmentId");
+
+                    b.HasIndex("InstructorId");
 
                     b.ToTable("Subjects", (string)null);
                 });
@@ -342,6 +387,16 @@ namespace Infrastructure.Migrations
                     b.ToTable("StudentSubject", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Model.Instructor.Instructor", b =>
+                {
+                    b.HasOne("Domain.Model.Department.Department", "Department")
+                        .WithMany("Instructors")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Department");
+                });
+
             modelBuilder.Entity("Domain.Model.Student.Student", b =>
                 {
                     b.HasOne("Domain.Model.Department.Department", "Department")
@@ -359,7 +414,15 @@ namespace Infrastructure.Migrations
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.SetNull);
 
+                    b.HasOne("Domain.Model.Instructor.Instructor", "Instructor")
+                        .WithMany("Subjects")
+                        .HasForeignKey("InstructorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Department");
+
+                    b.Navigation("Instructor");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -430,8 +493,15 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Model.Department.Department", b =>
                 {
+                    b.Navigation("Instructors");
+
                     b.Navigation("Students");
 
+                    b.Navigation("Subjects");
+                });
+
+            modelBuilder.Entity("Domain.Model.Instructor.Instructor", b =>
+                {
                     b.Navigation("Subjects");
                 });
 #pragma warning restore 612, 618

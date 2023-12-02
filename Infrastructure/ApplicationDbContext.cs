@@ -26,4 +26,5 @@ public class ApplicationDbContext:IdentityDbContext<Domain.Identity.User>
     public DbSet<Domain.Model.Student.Student>Students { get; set; }
     public DbSet<Domain.Model.Subject.Subject>Subjects { get; set; }
     public DbSet<Domain.Identity.User>Users { get; set; }
+    public DbSet<Domain.Model.Instructor.Instructor>Instructors { get; set; }
 }

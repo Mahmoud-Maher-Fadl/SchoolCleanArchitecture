@@ -1,0 +1,29 @@
+﻿using Application.User.Dto;
+using Domain.common;
+using Mapster;
+using MediatR;
+using Microsoft.AspNetCore.Identity;
+
+namespace Application.User.Commands.Delete;
+
+public class Handler:IRequestHandler<DeleteUserCommand,Result<UserDto>>
+{
+    private readonly UserManager<Domain.Identity.User> _userManager;
+
+    public Handler(UserManager<Domain.Identity.User> userManager)
+    {
+        _userManager = userManager;
+    }
+
+    public async Task<Result<UserDto>> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
+    {
+        var user =await _userManager.FindByIdAsync(request.Id);
+        if(user is null)
+            return Result.Failure<UserDto>("User Doesn't Exist");
+        var result = await _userManager.DeleteAsync(user);
+        if (result.Succeeded)
+            return Result.Success(user.Adapt<UserDto>());
+        else
+            return Result.Failure<UserDto>(result.Errors.FirstOrDefault()?.Description ?? "User Delete failed.");
+    }
+}
