@@ -7,6 +7,9 @@ public class Result
 
     public bool IsFailure() => !IsSuccess;
     public static Result<T> Success<T>(T value) => new(value);
+    /*{
+        return new Result<T>(value);
+    }*/
 
     public static Result<T> Failure<T>(params string[]? error) => new(default)
     {
@@ -29,5 +32,11 @@ public class Result<T> : Result
 public static class ResultExtensions
 {
     public static Result<T> AsSuccessResult<T>(this T obj) => Result.Success(obj);
+    /*{
+        return Result.Success(obj);
+    }*/
     public static Result<T> AsFailureResult<T>(this string error) => Result.Failure<T>(error);
+    /*{
+        return Result.Failure<T>(error);
+    }*/
 }

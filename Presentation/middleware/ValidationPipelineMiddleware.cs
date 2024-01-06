@@ -18,11 +18,19 @@ public class ValidationPipelineMiddleware<TRequest, TResponse> : IPipelineBehavi
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
-        var failures = _validators
-            .Select(v => v.Validate(request))
+        var validationTasks = _validators
+            .Select(v => v.ValidateAsync(request,cancellationToken));
+        var validationResults = await Task.WhenAll(validationTasks);
+
+        var failures = validationResults
             .SelectMany(result => result.Errors)
             .Where(f => f is not null)
             .ToList();
+        /*var failures = _validators
+            .Select(v => v.ValidateAsync(request,cancellationToken))
+            .SelectMany(result => result.Errors)
+            .Where(f => f is not null)
+            .ToList();*/
 
         if (failures.Count == 0) return await next();
 

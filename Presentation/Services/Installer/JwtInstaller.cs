@@ -15,7 +15,7 @@ public class JwtInstaller:IServiceInstaller
         var jwtOptions = new JwtOptions();
         configuration.GetSection(nameof(jwtOptions)).Bind(jwtOptions);
         services.AddSingleton(jwtOptions);
-        services.AddTransient<IJwtService, JwtService>();
+        services.AddTransient<IJwtRepo, JwtRepo>();
 
         
         services.AddAuthentication(x =>

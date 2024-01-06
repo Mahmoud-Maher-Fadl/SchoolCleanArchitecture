@@ -1,5 +1,5 @@
 ﻿using Domain.common;
-using Domain.Model;
+using Infrastructure.common.DatabaseGenerators;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

@@ -1,9 +1,9 @@
-﻿using Application.Instructor.Commands.Create;
-using Application.Instructor.Commands.Delete;
+﻿using Application.Instructor.Commands.Delete;
 using Application.Instructor.Commands.Update;
 using Application.Instructor.Dto;
 using Application.Instructor.Queries.All;
 using Application.Instructor.Queries.Id;
+using Application.User.Instructor.Commands.Create;
 using Domain.common;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -17,14 +17,12 @@ namespace SchoolCleanArchitecture.Controllers;
 public class InstructorController : ApiController
 {
     [HttpPost]
-    [SwaggerRequestExample(typeof(CreateInstructorCommand), typeof(CreateInstructorCommand.Example))]
 
     public async Task<Result> Add(CreateInstructorCommand command)
     {
         return await _mediator.Send(command);
     }
     [HttpPut]
-    [SwaggerRequestExample(typeof(UpdateInstructorCommand), typeof(UpdateInstructorCommand.Example))]
 
     public async Task<Result> Update(UpdateInstructorCommand command)
     {
@@ -32,7 +30,6 @@ public class InstructorController : ApiController
     }
     
     [HttpDelete]
-    [SwaggerRequestExample(typeof(DeleteInstructorCommand), typeof(DeleteInstructorCommand.Example))]
 
     public async Task<Result> Delete(string Id)
     {
@@ -47,7 +44,6 @@ public class InstructorController : ApiController
         return await _mediator.Send(new GetInstructorsQuery());
     }
     [HttpGet("{id}")]
-    [SwaggerRequestExample(typeof(GetInstructorByIdQuery), typeof(GetInstructorByIdQuery.Example))]
     public async Task<Result<InstructorDto>> GetById(string id)
     {
         return await _mediator.Send(new GetInstructorByIdQuery() { Id = id });

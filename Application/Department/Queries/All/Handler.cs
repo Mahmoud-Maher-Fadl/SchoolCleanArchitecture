@@ -59,7 +59,7 @@ public class Handler:IRequestHandler<GetDepartmentsQuery,Result<PagingList<Depar
            DepartmentsOrderingEnum.Name=>"Name",
            _ => "CreateDate"
         };
-        var depts = await _departmentRepository.GetAllAsync(d => d.Students!, d => d.Subjects!);
+        var depts = await _departmentRepository.GetAllAsync(d => d.Users!, d => d.Subjects!);
         var departments =await _context.Departments
             .Where(s=>s.Name.Contains(request.Search))
             .OrderBy(( d) => EF.Property<object>(d, filter))

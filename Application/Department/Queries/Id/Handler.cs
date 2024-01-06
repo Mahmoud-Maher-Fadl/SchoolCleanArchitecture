@@ -19,9 +19,7 @@ public class Handler:IRequestHandler<GetDepartmentByIdQuery,Result<DepartmentDto
     public async Task<Result<DepartmentDto>> Handle(GetDepartmentByIdQuery request, CancellationToken cancellationToken)
     {
         var department = await _context.Departments
-            .Include(x => x.Instructors)
-            .Include(x => x.Students)
-            .Include(x => x.Subjects)
+            .Include(x => x.Users)
             .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
         return department is null
             ? Result.Failure<DepartmentDto>("Department Not Found")

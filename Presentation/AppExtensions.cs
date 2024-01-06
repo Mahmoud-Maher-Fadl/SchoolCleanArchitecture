@@ -13,9 +13,9 @@ public static class AppExtensions
 
         var context = services.GetRequiredService<ApplicationDbContext>();
         await context.Database.MigrateAsync();
-        var seeds = typeof(SeedGenerator).Assembly.DefinedTypes
-            .Where(x => typeof(SeedGenerator).IsAssignableFrom(x) && x is { IsInterface: false, IsAbstract: false })
-            .Select(Activator.CreateInstance).Cast<SeedGenerator>().ToList();
+        var seeds = typeof(ISeedGenerator).Assembly.DefinedTypes
+            .Where(x => typeof(ISeedGenerator).IsAssignableFrom(x) && x is { IsInterface: false, IsAbstract: false })
+            .Select(Activator.CreateInstance).Cast<ISeedGenerator>().ToList();
         seeds.ForEach(x => x.Generate(context));
         await context.SaveChangesAsync();
     }

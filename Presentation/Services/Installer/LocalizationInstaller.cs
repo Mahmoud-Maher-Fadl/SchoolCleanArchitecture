@@ -7,7 +7,6 @@ public class LocalizationInstaller:IServiceInstaller
 {
     public void InstallServices(IServiceCollection services, IConfiguration configuration)
     {
-        
        services.AddControllersWithViews();
        services.AddLocalization(opt =>
         {

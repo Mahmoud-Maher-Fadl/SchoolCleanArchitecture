@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
 
-namespace Infrastructure;
+namespace Infrastructure.common.DatabaseGenerators;
 
 public class SeqIdValueGenerator : ValueGenerator<string>
 {

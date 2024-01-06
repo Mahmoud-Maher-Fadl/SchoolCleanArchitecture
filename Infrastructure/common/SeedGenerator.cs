@@ -2,7 +2,7 @@
 
 namespace Infrastructure.common;
 
-public interface SeedGenerator
+public interface ISeedGenerator
 {
     void Generate(ApplicationDbContext context);
 }

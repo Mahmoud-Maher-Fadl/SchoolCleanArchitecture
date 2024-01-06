@@ -10,12 +10,6 @@ public class ApplicationDbContext:IdentityDbContext<Domain.Identity.User>
     {
         
     }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        base.OnConfiguring(optionsBuilder);
-    }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -27,4 +21,5 @@ public class ApplicationDbContext:IdentityDbContext<Domain.Identity.User>
     public DbSet<Domain.Model.Subject.Subject>Subjects { get; set; }
     public DbSet<Domain.Identity.User>Users { get; set; }
     public DbSet<Domain.Model.Instructor.Instructor>Instructors { get; set; }
+    public DbSet<Domain.Role.Role>Roles { get; set; }
 }
