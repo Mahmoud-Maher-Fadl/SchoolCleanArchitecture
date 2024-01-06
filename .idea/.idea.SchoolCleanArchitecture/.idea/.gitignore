@@ -11,3 +11,19 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+# Rider/Visual Studio Code directories
+.idea/
+.vscode/
+
+# Ignore all files under the "obj" directories
+**/obj/
+
+# Ignore all files ending with specific extensions
+*.csproj.nuget.dgspec.json
+*.assets.cache
+*.csproj.AssemblyReference.cache
+project.assets.json
+project.nuget.cache
+project.packagespec.json
+rider.project.model.nuget.info
+rider.project.restore.info
