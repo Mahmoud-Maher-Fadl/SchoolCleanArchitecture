@@ -1,5 +1,4 @@
-﻿using Application.Instructor.Commands.Delete;
-using Application.Instructor.Dto;
+﻿using Application.User.Instructor.Dto;
 using Domain.common;
 using Domain.Model.Instructor;
 using Infrastructure;

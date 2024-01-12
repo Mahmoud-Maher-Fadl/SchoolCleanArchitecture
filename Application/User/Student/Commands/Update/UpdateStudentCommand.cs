@@ -1,16 +1,9 @@
-﻿using Application.Department.Commands;
-using Application.Student.Dto;
+﻿using Application.User.Student.Dto;
 using Domain.common;
-using Domain.Model.Student;
 using FluentValidation;
-using Infrastructure;
-using Mapster;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Filters;
 
-namespace Application.Student.Commands.Update;
+namespace Application.User.Student.Commands.Update;
 
 public class UpdateStudentCommand:IRequest<Result<StudentDto>>
 {
@@ -33,22 +26,4 @@ public class UpdateStudentCommand:IRequest<Result<StudentDto>>
         }
     }
     
-    public class Example : IMultipleExamplesProvider<UpdateStudentCommand>
-    {
-        private readonly IServiceScopeFactory _scopeFactory;
-
-        public Example(IServiceScopeFactory scopeFactory)
-        {
-            _scopeFactory = scopeFactory;
-        }
-
-        public IEnumerable<SwaggerExample<UpdateStudentCommand>> GetExamples()
-        {
-            using var scope = _scopeFactory.CreateScope();
-            var applicationDbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            var student = applicationDbContext.Students.FirstOrDefault();
-            yield return SwaggerExample.Create("example",student?.Adapt<UpdateStudentCommand>() ?? new UpdateStudentCommand());
-        }
-    }
-
 }

@@ -1,11 +1,9 @@
-﻿using Application.Student.Dto;
-using Application.Student.Queries.Id;
+﻿using Application.User.Student.Dto;
 using Domain.common;
 using Infrastructure;
 using Mapster;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Type = Domain.Identity.Type;
 
 namespace Application.User.Student.Queries.Id;
 

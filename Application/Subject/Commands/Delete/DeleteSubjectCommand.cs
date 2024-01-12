@@ -1,13 +1,8 @@
-﻿using Application.Localization;
-using Application.Subject.Dto;
+﻿using Application.Subject.Dto;
 using Domain.common;
-using Domain.Model.Subject;
 using Infrastructure;
-using Mapster;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Localization;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;

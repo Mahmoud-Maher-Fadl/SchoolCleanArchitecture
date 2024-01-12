@@ -1,7 +1,7 @@
 ﻿using Domain.Model.Student;
 using Mapster;
 
-namespace Application.Student.Dto;
+namespace Application.User.Student.Dto;
 
 public class StudentDto:IRegister
 {

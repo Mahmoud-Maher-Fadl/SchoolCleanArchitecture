@@ -21,8 +21,7 @@ public class Handler:IRequestHandler<GetSubjectsQuery,Result<PagingList<SubjectD
 
     public async Task<Result<PagingList<SubjectDto>>> Handle(GetSubjectsQuery request, CancellationToken cancellationToken)
     {
-        SubjectsOrderingEnum orderByEnum = request.OrderBy;
-        var filter = orderByEnum switch
+        var filter =  request.OrderBy switch
         {
             SubjectsOrderingEnum.Name=>"Name",
             SubjectsOrderingEnum.DepartmentName=>"DepartmentName",

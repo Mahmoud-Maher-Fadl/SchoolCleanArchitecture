@@ -1,13 +1,7 @@
 ﻿using Application.User.Dto;
 using Domain.common;
-using Domain.Identity;
 using FluentValidation;
-using Infrastructure;
-using Mapster;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Filters;
 
 namespace Application.User.Commands.UserPassword.ChangeUserPassword;
 public class ChangeUserPasswordCommand:IRequest<Result<UserDto>>
@@ -24,6 +18,7 @@ public class ChangeUserPasswordCommand:IRequest<Result<UserDto>>
             RuleFor(c => c.NewPassword).NotEmpty();
         }
     }
+    /*
     public class Example : IMultipleExamplesProvider<ChangeUserPasswordCommand>
     {
         private readonly IServiceScopeFactory _scopeFactory;
@@ -47,5 +42,6 @@ public class ChangeUserPasswordCommand:IRequest<Result<UserDto>>
             yield return SwaggerExample.Create("example", command);
         }
     }
+    */
 
 }

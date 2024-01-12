@@ -1,13 +1,9 @@
 ﻿using Application.Department.Dto;
-using Application.Localization;
 using Domain.common;
-using Domain.Model.Department;
 using FluentValidation;
 using Infrastructure;
-using Mapster;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Localization;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;

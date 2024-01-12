@@ -1,15 +1,13 @@
-﻿using Application.Instructor.Dto;
+﻿using Application.User.Instructor.Dto;
 using Domain.common;
 using Infrastructure;
-using Mapster;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Application.Instructor.Queries.Id;
+namespace Application.User.Instructor.Queries.Id;
 
 public class GetInstructorByIdQuery:IRequest<Result<InstructorDto>>
 {

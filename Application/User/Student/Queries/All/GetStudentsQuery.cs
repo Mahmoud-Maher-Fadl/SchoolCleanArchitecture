@@ -1,13 +1,10 @@
 ﻿using Application.Common;
 using Application.Enums;
-using Application.Student.Dto;
+using Application.User.Student.Dto;
 using Domain.common;
-using Infrastructure;
-using Mapster;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
-namespace Application.Student.Queries.All;
+namespace Application.User.Student.Queries.All;
 
 public class GetStudentsQuery:IRequest<Result<PagingList<StudentDto>>>
 {

@@ -1,22 +1,20 @@
 ﻿using Application.Enums;
-using Application.Student.Commands.Delete;
-using Application.Student.Commands.Update;
-using Application.Student.Dto;
-using Application.Student.Queries;
-using Application.Student.Queries.All;
-using Application.Student.Queries.Id;
 using Application.User.Student.Commands.Create;
+using Application.User.Student.Commands.Delete;
+using Application.User.Student.Commands.Update;
+using Application.User.Student.Dto;
+using Application.User.Student.Queries;
+using Application.User.Student.Queries.All;
+using Application.User.Student.Queries.Id;
 using Domain.common;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Filters;
 
 namespace SchoolCleanArchitecture.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize]
 public class StudentController : ApiController
 {
     [HttpPost]
@@ -24,19 +22,21 @@ public class StudentController : ApiController
     {
         return await _mediator.Send(command);
     }
+    [Authorize]
 
     [HttpPut]
     public async Task<Result> Update(UpdateStudentCommand command)
     {
         return await _mediator.Send(command);
     }
+    [Authorize]
 
     [HttpDelete]
     public async Task<Result> Delete(string id)
     {
         return await _mediator.Send(new DeleteStudentCommand() { Id = id });
     }
-
+    [Authorize(Roles = "Admin")]
     [HttpGet]
     public async Task<Result> GetAll([FromQuery] int page = 1,
         [FromQuery] int pageSize = 10, [FromQuery] string search = "", [FromQuery] StudentsOrderingEnum orderby = 0)

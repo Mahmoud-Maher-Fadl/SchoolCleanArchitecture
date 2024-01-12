@@ -1,18 +1,12 @@
-﻿using System.Diagnostics;
-using Domain.common;
-using Domain.JWT;
+﻿using Domain.common;
 using Domain.Role;
 using Mapster;
 using MediatR;
-using Microsoft.AspNetCore.Http;
-
 
 namespace Application.Role.Commands.Create;
 
 public class Handler:IRequestHandler<CreateRoleCommand,Result<RoleDto>>
 {
-    //private readonly RoleManager<Domain.Identity.User> _roleManager;
-    //private readonly RoleManager<IdentityRole> _roleManager;
     private readonly IRoleRepo _roleRepo;
 
     public Handler(IRoleRepo roleRepo)

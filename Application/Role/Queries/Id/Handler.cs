@@ -10,9 +10,9 @@ namespace Application.Role.Queries.Id;
 
 public class Handler:IRequestHandler<GetRoleByIdQuery,Result<RoleDto>>
 {
-    private readonly RoleManager<IdentityRole> _roleManager;
+    private readonly RoleManager<Domain.Role.Role> _roleManager;
 
-    public Handler(RoleManager<IdentityRole> roleManager)
+    public Handler(RoleManager<Domain.Role.Role> roleManager)
     {
         _roleManager = roleManager;
     }

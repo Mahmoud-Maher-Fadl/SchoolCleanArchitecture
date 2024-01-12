@@ -9,7 +9,6 @@ using Domain.common;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Filters;
 
 namespace SchoolCleanArchitecture.Controllers;
 [ApiController]
@@ -19,7 +18,6 @@ namespace SchoolCleanArchitecture.Controllers;
 public class SubjectController : ApiController
 {
     [HttpPost]
-    [SwaggerRequestExample(typeof(CreateSubjectCommand), typeof(CreateSubjectCommand.Example))]
 
     public async Task<Result> Add(CreateSubjectCommand command)
     {
@@ -27,14 +25,12 @@ public class SubjectController : ApiController
     }
     
     [HttpPut]
-    [SwaggerRequestExample(typeof(UpdateSubjectCommand), typeof(UpdateSubjectCommand.Example))]
 
     public async Task<Result>Update(UpdateSubjectCommand command)
     {
         return await _mediator.Send(command);
     }
     [HttpDelete]
-    [SwaggerRequestExample(typeof(DeleteSubjectCommand), typeof(DeleteSubjectCommand.Example))]
 
     public async Task<Result>Delete(string id)
     {
@@ -55,7 +51,6 @@ public class SubjectController : ApiController
     }
     
     [HttpGet("{id}")]
-    [SwaggerRequestExample(typeof(GetSubjectByIdQuery), typeof(GetSubjectByIdQuery.Example))]
     public async Task<Result<SubjectDto>> GetById(string id)
     {
         return await _mediator.Send(new GetSubjectByIdQuery() { Id = id });

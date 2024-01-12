@@ -1,0 +1,130 @@
+[
+  {
+    "Name": "Algorithms",
+    "Hours": 3
+  },
+  {
+    "Name": "Data Structures",
+    "Hours": 3
+  },
+  {
+    "Name": "Databases",
+    "Hours": 3
+  },
+  {
+    "Name": "Operating Systems",
+    "Hours": 3
+  },
+  {
+    "Name": "Computer Architecture",
+    "Hours": 3
+  },
+  {
+    "Name": "Software Engineering",
+    "Hours": 3
+  },
+  {
+    "Name": "Programming Languages",
+    "Hours": 3
+  },
+  {
+    "Name": "Computer Networks",
+    "Hours": 3
+  },
+  {
+    "Name": "Computer Security",
+    "Hours": 3
+  },
+  {
+    "Name": "Computer Graphics",
+    "Hours": 3
+  },
+  {
+    "Name": "Artificial Intelligence",
+    "Hours": 3
+  },
+  {
+    "Name": "Theory of Computation",
+    "Hours": 3
+  },
+  {
+    "Name": "Compilers",
+    "Hours": 3
+  },
+  {
+    "Name": "Parallel Computing",
+    "Hours": 3
+  },
+  {
+    "Name": "Human Computer Interaction",
+    "Hours": 3
+  },
+  {
+    "Name": "Computer Vision",
+    "Hours": 3
+  },
+  {
+    "Name": "Machine Learning",
+    "Hours": 3
+  },
+  {
+    "Name": "Natural Language Processing",
+    "Hours": 3
+  },
+  {
+    "Name": "Robotics",
+    "Hours": 3
+  },
+  {
+    "Name": "Computational Biology",
+    "Hours": 3
+  },
+  {
+    "Name": "Computational Chemistry",
+    "Hours": 3
+  },
+  {
+    "Name": "Computational Physics",
+    "Hours": 3
+  },
+  {
+    "Name": "Computational Neuroscience",
+    "Hours": 3
+  },
+  {
+    "Name": "Computational Economics",
+    "Hours": 3
+  },
+  {
+    "Name": "Computational Sociology",
+    "Hours": 3
+  },
+  {
+    "Name": "Computational Linguistics",
+    "Hours": 3
+  },
+  {
+    "Name": "Computational Mathematics",
+    "Hours": 3
+  },
+  {
+    "Name": "Computational Statistics",
+    "Hours": 3
+  },
+  {
+    "Name": "Computational Musicology",
+    "Hours": 3
+  },
+  {
+    "Name": "Computational Philosophy",
+    "Hours": 3
+  },
+  {
+    "Name": "Computational Psychology",
+    "Hours": 3
+  },
+  {
+    "Name": "Computational Sociology",
+    "Hours": 2
+  }
+]

@@ -1,11 +1,11 @@
-﻿using Application.Instructor.Dto;
+﻿using Application.User.Instructor.Dto;
 using Domain.common;
 using Infrastructure;
 using Mapster;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Instructor.Queries.Id;
+namespace Application.User.Instructor.Queries.Id;
 public class Handler:IRequestHandler<GetInstructorByIdQuery,Result<InstructorDto>>
 {
     private readonly ApplicationDbContext _context;

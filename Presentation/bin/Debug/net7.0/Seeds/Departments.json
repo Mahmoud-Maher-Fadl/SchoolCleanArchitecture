@@ -1,0 +1,26 @@
+[
+  {
+    "Name":"Computer Science",
+    "Location":"First Floor"
+  },
+  {
+    "Name":"Information Systems",
+    "Location":"Second Floor"
+  },
+  {
+    "Name":"Artificial Intelligence",
+    "Location":"Third Floor"
+  },
+  {
+    "Name":"Scientific Computing",
+    "Location":"Fourth Floor"
+  },
+  {
+    "Name":"Medical Informatics",
+    "Location":"Fifth Floor"
+  },
+  {
+    "Name":"Networks",
+    "Location":"Sixth Floor"
+  }
+]

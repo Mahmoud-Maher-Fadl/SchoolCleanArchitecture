@@ -1,8 +1,7 @@
-﻿using Application.Student.Dto;
-using Domain.Model.Instructor;
+﻿using Domain.Model.Instructor;
 using Mapster;
 
-namespace Application.Instructor.Dto;
+namespace Application.User.Instructor.Dto;
 
 public class InstructorDto:IRegister
 {

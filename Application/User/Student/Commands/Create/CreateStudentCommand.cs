@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Application.Student.Dto;
+using Application.User.Student.Dto;
 using Domain.common;
 using Domain.Model.Student;
 using FluentValidation;
@@ -12,7 +12,7 @@ namespace Application.User.Student.Commands.Create;
 
 public class CreateStudentCommand:IRequest<Result<StudentDto>>
 {
-    public string RoleId { get; set; }
+    public string[]? Roles { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Address { get; set; }
@@ -43,7 +43,7 @@ public class CreateStudentCommand:IRequest<Result<StudentDto>>
         }
     }
 
-    public class Example : IMultipleExamplesProvider<CreateStudentCommand>
+     public class Example : IMultipleExamplesProvider<CreateStudentCommand>
     {
         private readonly IServiceScopeFactory _scopeFactory;
 

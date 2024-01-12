@@ -1,21 +1,19 @@
-﻿using Application.Student.Dto;
+﻿using Application.User.Student.Dto;
 using Domain.common;
 using Infrastructure;
-using Mapster;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Application.Student.Queries.Id;
+namespace Application.User.Student.Queries.Id;
 
 public class GetStudentByIdQuery:IRequest<Result<StudentDto>>
 {
     public string Id { get; set; }
     
-    public class Example : IOperationFilter
+     public class Example : IOperationFilter
     {
         private readonly IServiceScopeFactory? _scopeFactory;
 

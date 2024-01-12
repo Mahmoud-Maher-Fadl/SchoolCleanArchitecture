@@ -1,5 +1,5 @@
 ﻿using Application.Localization;
-using Application.Student.Dto;
+using Application.User.Student.Dto;
 using Domain.common;
 using Domain.Model.Student;
 using Infrastructure;
@@ -7,7 +7,7 @@ using Mapster;
 using MediatR;
 using Microsoft.Extensions.Localization;
 
-namespace Application.Student.Commands.Delete;
+namespace Application.User.Student.Commands.Delete;
 
 public class Handler:IRequestHandler<DeleteStudentCommand,Result<StudentDto>>
 {

@@ -1,19 +1,17 @@
-﻿using Application.Instructor.Commands.Delete;
-using Application.Instructor.Commands.Update;
-using Application.Instructor.Dto;
-using Application.Instructor.Queries.All;
-using Application.Instructor.Queries.Id;
-using Application.User.Instructor.Commands.Create;
+﻿using Application.User.Instructor.Commands.Create;
+using Application.User.Instructor.Commands.Delete;
+using Application.User.Instructor.Commands.Update;
+using Application.User.Instructor.Dto;
+using Application.User.Instructor.Queries.All;
+using Application.User.Instructor.Queries.Id;
 using Domain.common;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Filters;
 
 namespace SchoolCleanArchitecture.Controllers;
 [ApiController]
 [Route("api/[controller]")]
-[Authorize]
 public class InstructorController : ApiController
 {
     [HttpPost]
@@ -22,13 +20,14 @@ public class InstructorController : ApiController
     {
         return await _mediator.Send(command);
     }
+    [Authorize]
     [HttpPut]
 
     public async Task<Result> Update(UpdateInstructorCommand command)
     {
         return await _mediator.Send(command);
     }
-    
+//    [Authorize]
     [HttpDelete]
 
     public async Task<Result> Delete(string Id)
@@ -36,13 +35,14 @@ public class InstructorController : ApiController
         return await _mediator.Send(new DeleteInstructorCommand(){Id = Id});
     }
     
-
+    [Authorize]
     [HttpGet]
     public async Task<Result> GetAll()
     {
        
         return await _mediator.Send(new GetInstructorsQuery());
     }
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<Result<InstructorDto>> GetById(string id)
     {

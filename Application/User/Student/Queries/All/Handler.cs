@@ -1,13 +1,11 @@
 ﻿using Application.Common;
 using Application.Enums;
-using Application.Student.Dto;
-using Application.Student.Queries.All;
+using Application.User.Student.Dto;
 using Domain.common;
 using Infrastructure;
 using Mapster;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using Type = Domain.Identity.Type;
 
 namespace Application.User.Student.Queries.All;

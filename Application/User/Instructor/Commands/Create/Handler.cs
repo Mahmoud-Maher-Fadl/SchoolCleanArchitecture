@@ -1,4 +1,4 @@
-﻿using Application.Instructor.Dto;
+﻿using Application.User.Instructor.Dto;
 using Domain.common;
 using Domain.Model.Instructor;
 using Infrastructure;
@@ -43,13 +43,24 @@ public class Handler:IRequestHandler<CreateInstructorCommand,Result<InstructorDt
         var user = request.Adapt<Domain.Identity.User>();
         user.Instructor = request.Adapt<Domain.Model.Instructor.Instructor>();
         user.Type = Type.Instructor;
-        var result = await _userManager.CreateAsync(user);
-        var role = await _context.Roles.FindAsync(request.RoleId);
-        if (role is null)
-            return Result.Failure<InstructorDto>($"Invalid Role Id :{request.RoleId} ");
-        await _userManager.AddToRoleAsync(user, role.Name);
-        return result.Succeeded
-            ? Result.Success(user.Adapt<InstructorDto>())
-            : Result.Failure<InstructorDto>(result.Errors.ToString() ?? string.Empty);
+        var result = await _userManager.CreateAsync(user,request.Password);
+        if(!result.Succeeded)
+            return Result.Failure<InstructorDto>(result.Errors.ToString()??string.Empty);
+        if (request.Roles is { Length: > 0 })
+        {
+            foreach (var roleId in request.Roles)
+            {
+                var role = await _context.Roles.FindAsync(roleId);
+                if (role is null)
+                    return Result.Failure<InstructorDto>($"Invalid Role Id :{roleId} ");
+            }
+            var roles=await _context.Roles.Where(x=>request.Roles
+                    .Contains(x.Id)).
+                ToArrayAsync(cancellationToken);
+           var rolesResult= await _userManager.AddToRolesAsync(user, roles.Select(x=>x.Name)!);
+            if(!rolesResult.Succeeded) 
+                return Result.Failure<InstructorDto>(rolesResult.Errors.ToString() ?? string.Empty);
+        }
+        return user.Adapt<InstructorDto>().AsSuccessResult();
     }
 }

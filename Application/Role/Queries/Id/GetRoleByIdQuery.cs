@@ -1,5 +1,4 @@
 ﻿using Domain.common;
-using Domain.JWT;
 using Domain.Role;
 using Infrastructure;
 using MediatR;

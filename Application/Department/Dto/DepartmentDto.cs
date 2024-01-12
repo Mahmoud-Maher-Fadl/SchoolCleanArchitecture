@@ -1,5 +1,4 @@
-﻿using Application.Student.Dto;
-using Mapster;
+﻿using Mapster;
 using Type = Domain.Identity.Type;
 
 namespace Application.Department.Dto;

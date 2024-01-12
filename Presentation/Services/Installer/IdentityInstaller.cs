@@ -1,4 +1,5 @@
 ﻿using Domain.JWT;
+using Domain.Role;
 using Infrastructure;
 using Microsoft.AspNetCore.Identity;
 namespace SchoolCleanArchitecture.Services.Installer;
@@ -7,7 +8,7 @@ public class IdentityInstaller:IServiceInstaller
 {
   public void InstallServices(IServiceCollection service, IConfiguration configuration)
   {
-      service.AddIdentity<Domain.Identity.User,IdentityRole>(option =>
+      service.AddIdentity<Domain.Identity.User,Role>(option =>
       {
           option.SignIn.RequireConfirmedEmail = false;
           option.User.RequireUniqueEmail = false;

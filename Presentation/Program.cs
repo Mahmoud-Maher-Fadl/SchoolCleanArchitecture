@@ -1,13 +1,11 @@
-using System.Globalization;
 using System.Text.Json.Serialization;
 using Application.Department.Dto;
 using Domain.JWT;
 using Domain.Role;
 using Infrastructure.JWT;
 using Infrastructure.Role;
-using SchoolCleanArchitecture;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
+using SchoolCleanArchitecture;
 using SchoolCleanArchitecture.Services;
 using Serilog;
 using Swashbuckle.AspNetCore.Filters;

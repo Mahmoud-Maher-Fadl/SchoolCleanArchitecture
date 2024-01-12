@@ -7,8 +7,8 @@ namespace Infrastructure.Role;
 public class RoleRepo:IRoleRepo
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
-    private readonly RoleManager<IdentityRole> _roleManager;
-    public RoleRepo(RoleManager<IdentityRole> roleManager, IHttpContextAccessor httpContextAccessor)
+    private readonly RoleManager<Domain.Role.Role> _roleManager;
+    public RoleRepo(RoleManager<Domain.Role.Role> roleManager, IHttpContextAccessor httpContextAccessor)
     {
         _roleManager = roleManager;
         _httpContextAccessor = httpContextAccessor;

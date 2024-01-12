@@ -1,9 +1,7 @@
 ﻿using Application.Subject.Dto;
 using Domain.common;
 using Infrastructure;
-using Mapster;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;

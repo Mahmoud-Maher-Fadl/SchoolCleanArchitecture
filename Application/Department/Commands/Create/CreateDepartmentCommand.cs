@@ -1,12 +1,9 @@
 ﻿using Application.Department.Dto;
 using Domain.common;
-using Domain.Model.Department;
 using FluentValidation;
-using Swashbuckle.AspNetCore.Filters;
-using Infrastructure;
-using Mapster;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace Application.Department.Commands.Create;
 

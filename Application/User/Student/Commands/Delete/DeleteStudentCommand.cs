@@ -1,18 +1,13 @@
-﻿using Application.Department.Dto;
-using Application.Localization;
-using Application.Student.Dto;
+﻿using Application.User.Student.Dto;
 using Domain.common;
-using Domain.Model.Student;
 using Infrastructure;
-using Mapster;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Localization;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Application.Student.Commands.Delete;
+namespace Application.User.Student.Commands.Delete;
 
 public class DeleteStudentCommand:IRequest<Result<StudentDto>>
 {

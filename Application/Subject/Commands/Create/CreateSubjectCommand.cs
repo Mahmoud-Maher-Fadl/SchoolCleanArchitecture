@@ -1,9 +1,7 @@
 ﻿using Application.Subject.Dto;
 using Domain.common;
-using Domain.Model.Subject;
 using FluentValidation;
 using Infrastructure;
-using Mapster;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Filters;
@@ -14,7 +12,7 @@ public class CreateSubjectCommand:IRequest<Result<SubjectDto>>
 {
     public string Name { get; set; }
     public int Hours { get; set; }
-    public string InstructorId { get; set; }
+    public string? InstructorId { get; set; }
     public string? DepartmentId { get; set; }
     public class Validator:AbstractValidator<CreateSubjectCommand>
     {
@@ -22,7 +20,6 @@ public class CreateSubjectCommand:IRequest<Result<SubjectDto>>
         {
             RuleFor(c => c.Name).NotEmpty();
             RuleFor(c => c.Hours).NotEmpty();
-            RuleFor(c => c.InstructorId).NotEmpty();
         }
     }
 
@@ -48,10 +45,10 @@ public class CreateSubjectCommand:IRequest<Result<SubjectDto>>
             {
                 Name ="Algorithms",
                 Hours = 3,
-                InstructorId = instructorId
             };
             yield return SwaggerExample.Create("Required", command);
             command.DepartmentId = departmentId;
+            command.InstructorId = instructorId;
             yield return SwaggerExample.Create("Full", command);
 
         }

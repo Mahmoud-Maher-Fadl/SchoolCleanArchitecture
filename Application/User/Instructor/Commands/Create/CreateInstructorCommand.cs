@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Application.Instructor.Dto;
+using Application.User.Instructor.Dto;
 using Domain.common;
 using Domain.Model.Instructor;
 using FluentValidation;
@@ -7,13 +7,12 @@ using Infrastructure;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Filters;
-using Type = Domain.Identity.Type;
 
 namespace Application.User.Instructor.Commands.Create;
 
 public class CreateInstructorCommand:IRequest<Result<InstructorDto>>
 {
-    public string RoleId { get; set; }
+    public string[]? Roles { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Address { get; set; }

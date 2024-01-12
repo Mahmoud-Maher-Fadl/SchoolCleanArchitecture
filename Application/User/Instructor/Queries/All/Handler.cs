@@ -1,4 +1,4 @@
-﻿using Application.Instructor.Dto;
+﻿using Application.User.Instructor.Dto;
 using Domain.common;
 using Infrastructure;
 using Mapster;
@@ -6,7 +6,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Type = Domain.Identity.Type;
 
-namespace Application.Instructor.Queries.All;
+namespace Application.User.Instructor.Queries.All;
 public class Handler:IRequestHandler<GetInstructorsQuery,Result<List<InstructorDto>>>
 {
     private readonly ApplicationDbContext _context;

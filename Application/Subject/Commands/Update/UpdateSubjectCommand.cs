@@ -1,11 +1,9 @@
 ﻿using Application.Subject.Dto;
 using Domain.common;
-using Domain.Model.Subject;
 using FluentValidation;
 using Infrastructure;
 using Mapster;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -16,7 +14,7 @@ public class UpdateSubjectCommand:IRequest<Result<SubjectDto>>
     public string Id { get; set; }
     public string Name { get; set; }
     public int Hours { get; set; }
-    public string InstructorId { get; set; }
+    public string? InstructorId { get; set; }
     public string? DepartmentId { get; set; }
     public class Validator:AbstractValidator<UpdateSubjectCommand>
     {
@@ -28,6 +26,7 @@ public class UpdateSubjectCommand:IRequest<Result<SubjectDto>>
         }
     }
     
+    /*
     public class Example : IMultipleExamplesProvider<UpdateSubjectCommand>
     {
         private readonly IServiceScopeFactory _scopeFactory;
@@ -45,5 +44,6 @@ public class UpdateSubjectCommand:IRequest<Result<SubjectDto>>
             yield return SwaggerExample.Create("example",subject?.Adapt<UpdateSubjectCommand>() ?? new UpdateSubjectCommand());
         }
     }
+    */
 
 }
