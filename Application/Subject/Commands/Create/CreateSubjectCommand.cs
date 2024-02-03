@@ -37,7 +37,7 @@ public class CreateSubjectCommand:IRequest<Result<SubjectDto>>
         public IEnumerable<SwaggerExample<CreateSubjectCommand>> GetExamples()
         {
             using var scope = _scopeFactory.CreateScope();
-            var applicationDbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var applicationDbContext = scope.ServiceProvider.GetRequiredService<IApplicationDbContext>();
             var instructorId = applicationDbContext.Instructors.Select(x => x.Id).FirstOrDefault() ?? string.Empty;
             var departmentId = applicationDbContext.Departments.Select(x => x.Id).FirstOrDefault() ?? string.Empty;
 

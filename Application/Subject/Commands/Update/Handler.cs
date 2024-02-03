@@ -10,10 +10,10 @@ namespace Application.Subject.Commands.Update;
 
 public class Handler:IRequestHandler<UpdateSubjectCommand,Result<SubjectDto>>
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IApplicationDbContext _context;
     private readonly ISubjectRepository _subjectRepository;
 
-    public Handler(ApplicationDbContext context, ISubjectRepository subjectRepository)
+    public Handler(IApplicationDbContext context, ISubjectRepository subjectRepository)
     {
         _context = context;
         _subjectRepository = subjectRepository;

@@ -5,9 +5,10 @@
       <map>
         <entry key="Common:78798c52-be9c-4aee-b783-597fbbe2461e:dbContext" value="Infrastructure.ApplicationDbContext" />
         <entry key="Common:buildConfiguration" value="Debug" />
+        <entry key="Common:cfe9be0e-b643-4c39-a480-09ff4acde17b:dbContext" value="School.AdminContext" />
         <entry key="Common:noBuild" value="false" />
         <entry key="Common:outputFolder" value="Migrations" />
-        <entry key="Common:useDefaultConnection" value="true" />
+        <entry key="Common:useDefaultConnection" value="false" />
       </map>
     </option>
   </component>

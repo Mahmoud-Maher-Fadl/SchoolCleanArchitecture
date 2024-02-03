@@ -1,8 +1,8 @@
-﻿using Domain.Identity;
+﻿using Domain.Tenant;
 
 namespace Domain.JWT;
 
 public interface IJwtRepo
 { 
-    Task<string> GenerateToken(User user);
+    Task<string> GenerateToken(Tenant.Tenant tenant);
 }

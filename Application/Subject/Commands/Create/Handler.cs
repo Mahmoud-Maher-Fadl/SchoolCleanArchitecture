@@ -10,9 +10,9 @@ namespace Application.Subject.Commands.Create;
 public class Handler:IRequestHandler<CreateSubjectCommand,Result<SubjectDto>>
 {
     private readonly ISubjectRepository _subjectRepository;
-    private readonly ApplicationDbContext _context;
+    private readonly IApplicationDbContext _context;
 
-    public Handler(ISubjectRepository subjectRepository, ApplicationDbContext context)
+    public Handler(ISubjectRepository subjectRepository, IApplicationDbContext context)
     {
         _subjectRepository = subjectRepository;
         _context = context;

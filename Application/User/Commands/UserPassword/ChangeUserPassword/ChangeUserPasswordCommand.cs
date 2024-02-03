@@ -31,7 +31,7 @@ public class ChangeUserPasswordCommand:IRequest<Result<UserDto>>
         public IEnumerable<SwaggerExample<ChangeUserPasswordCommand>> GetExamples()
         {
             using var scope = _scopeFactory.CreateScope();
-            var applicationDbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var applicationDbContext = scope.ServiceProvider.GetRequiredService<IApplicationDbContext>();
             var userName = applicationDbContext.Users.Select(x => x.UserName).FirstOrDefault() ?? string.Empty;
             var command=new ChangeUserPasswordCommand()
             {

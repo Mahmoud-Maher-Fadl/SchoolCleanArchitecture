@@ -13,8 +13,8 @@ public class SubjectDto:IRegister
     public void Register(TypeAdapterConfig config)
     {
         config.NewConfig<Domain.Model.Subject.Subject, SubjectDto>()
-            .Map(dest => dest.InstructorName, src => src.Instructor.User.UserName)
-            .Map(dest => dest.DepartmentName, src => src.Department!.Name)
-            .Map(dest=>dest.StudentsNames,src=>src.Students.Select(student=>student.User.UserName));
+            // .Map(dest => dest.InstructorName, src => src.Instructor.User.UserName)
+            .Map(dest => dest.DepartmentName, src => src.Department!.Name);
+        //   .Map(dest=>dest.StudentsNames,src=>src.Students.Select(student=>student.User.UserName));
     }
 }

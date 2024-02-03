@@ -1,5 +1,5 @@
 ﻿using Mapster;
-using Type = Domain.Identity.Type;
+using Type = Domain.Tenant.Type;
 
 namespace Application.Department.Dto;
 
@@ -15,8 +15,9 @@ public class DepartmentDto:IRegister
     public void Register(TypeAdapterConfig config)
     {
         config.NewConfig<Domain.Model.Department.Department, DepartmentDto>()
-            .Map(dest=>dest.StudentsNames,src=>src.Users.Where(x=>x.Type==Type.Student).Select(x=>x.UserName))
-            .Map(dest=>dest.InstructorsNames,src=>src.Users.Where(x=>x.Type==Type.Instructor).Select(x=>x.UserName))
+            // may cause a null reference exception
+           // .Map(dest=>dest.StudentsNames,src=>src.Students.Select(x=>x.User.UserName))
+           // .Map(dest=>dest.InstructorsNames,src=>src.Instructors.Select(x=>x.User.UserName))
             .Map(dest=>dest.SubjectsNames,src=>src.Subjects!.Select(subject=>subject.Name));
    
     }

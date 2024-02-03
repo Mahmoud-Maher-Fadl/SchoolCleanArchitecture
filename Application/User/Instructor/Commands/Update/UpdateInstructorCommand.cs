@@ -14,7 +14,6 @@ namespace Application.User.Instructor.Commands.Update;
 public class UpdateInstructorCommand:IRequest<Result<InstructorDto>>
 {
     public string Id { get; set; }
-    public string[]? Roles { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Address { get; set; }
@@ -58,7 +57,7 @@ public class UpdateInstructorCommand:IRequest<Result<InstructorDto>>
         public IEnumerable<SwaggerExample<UpdateInstructorCommand>> GetExamples()
         {
             using var scope = _scopeFactory.CreateScope();
-            var applicationDbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var applicationDbContext = scope.ServiceProvider.GetRequiredService<IApplicationDbContext>();
             var instructor = applicationDbContext.Instructors.FirstOrDefault();
             yield return SwaggerExample.Create("example",instructor?.Adapt<UpdateInstructorCommand>() ?? new UpdateInstructorCommand());
         }

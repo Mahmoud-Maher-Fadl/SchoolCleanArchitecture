@@ -10,9 +10,9 @@ namespace Application.Department.Commands.Update;
 public class Handler:IRequestHandler<UpdateDepartmentCommand,Result<DepartmentDto>>
 {
     private readonly IDepartmentRepository _departmentRepository;
-    private readonly ApplicationDbContext _context;
+    private readonly IApplicationDbContext _context;
 
-    public Handler(IDepartmentRepository departmentRepository, ApplicationDbContext context)
+    public Handler(IDepartmentRepository departmentRepository, IApplicationDbContext context)
     {
         _departmentRepository = departmentRepository;
         _context = context;

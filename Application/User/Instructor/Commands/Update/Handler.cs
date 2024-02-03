@@ -1,4 +1,4 @@
-﻿using Application.User.Instructor.Dto;
+﻿/*using Application.User.Instructor.Dto;
 using Domain.common;
 using Domain.Model.Instructor;
 using Infrastructure;
@@ -6,32 +6,32 @@ using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Type = Domain.Identity.Type;
+using Type = Domain.Tenant.Type;
 
 namespace Application.User.Instructor.Commands.Update;
 
 public class Handler : IRequestHandler<UpdateInstructorCommand, Result<InstructorDto>>
 {
-    private readonly ApplicationDbContext _context;
-    private readonly IInstructorRepository _instructorRepository;
-    private readonly UserManager<Domain.Identity.User> _userManager;
+    private readonly IApplicationDbContext _context;
+    private readonly IAdminContext _adminContext;
+    private readonly UserManager<Domain.Tenant.Tenant> _userManager;
 
-    public Handler(ApplicationDbContext context, IInstructorRepository instructorRepository,
-        UserManager<Domain.Identity.User> userManager)
+    public Handler(IApplicationDbContext context,
+        UserManager<Domain.Tenant.Tenant> userManager, IAdminContext adminContext)
     {
         _context = context;
-        _instructorRepository = instructorRepository;
         _userManager = userManager;
+        _adminContext = adminContext;
     }
 
     public async Task<Result<InstructorDto>> Handle(UpdateInstructorCommand request,
         CancellationToken cancellationToken)
     {
-        var user = await _context.Users
+        var user = await _adminContext.Tenants
             .Include(x => x.Instructor)
             .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
         if (user is null)
-            return Result.Failure<InstructorDto>("User Not Found");
+            return Result.Failure<InstructorDto>("Tenant Not Found");
         var isExistEmail = await _userManager.Users
             .Where(x=>x.Id!=request.Id)
             .FirstOrDefaultAsync(x => x.Email == request.Email, cancellationToken);
@@ -42,33 +42,13 @@ public class Handler : IRequestHandler<UpdateInstructorCommand, Result<Instructo
             .Where(x=>x.Id!=request.Id)
             .FirstOrDefaultAsync(x => x.UserName == request.UserName, cancellationToken);
         if (isExistUserName is not null)
-            return Result.Failure<InstructorDto>($"This User Name {request.UserName} Is Already Used");
+            return Result.Failure<InstructorDto>($"This Tenant Name {request.UserName} Is Already Used");
 
         if (request.DepartmentId is not null)
         {
             var department = await _context.Departments.FindAsync(request.DepartmentId);
             if (department is null)
                 return Result.Failure<InstructorDto>("Department Not Found");
-        }
-
-        var userRoles = await _userManager.GetRolesAsync(user);
-        var removeRolesResult= await _userManager.RemoveFromRolesAsync(user, userRoles);
-        if(!removeRolesResult.Succeeded)
-            return Result.Failure<InstructorDto>(removeRolesResult.Errors.Select(x=>x.Description).ToArray());
-        if (request.Roles is { Length: > 0 })
-        {
-            foreach (var roleId in request.Roles)
-            {
-                var role = await _context.Roles.FindAsync(roleId);
-                if (role is null)
-                    return Result.Failure<InstructorDto>($"Invalid Role Id :{roleId} ");
-            }
-
-            var roles = await _context.Roles.Where(x => request.Roles
-                .Contains(x.Id)).ToArrayAsync(cancellationToken);
-            var rolesResult = await _userManager.AddToRolesAsync(user, roles.Select(x => x.Name)!);
-            if(!rolesResult.Succeeded) 
-                return Result.Failure<InstructorDto>(rolesResult.Errors.ToString() ?? string.Empty);
         }
         request.Adapt(user);
         user.Instructor = request.Adapt<Domain.Model.Instructor.Instructor>();
@@ -79,4 +59,4 @@ public class Handler : IRequestHandler<UpdateInstructorCommand, Result<Instructo
         
         
     }
-}
+}*/

@@ -44,7 +44,7 @@ public class UpdateRolCommand:IRequest<Result<RoleDto>>
         public IEnumerable<SwaggerExample<UpdateRolCommand>> GetExamples()
         {
             using var scope = _scopeFactory.CreateScope();
-            var applicationDbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var applicationDbContext = scope.ServiceProvider.GetRequiredService<IAdminContext>();
             var role = applicationDbContext.Roles.FirstOrDefault();
             yield return SwaggerExample.Create("example",role?.Adapt<UpdateRolCommand>() ?? new UpdateRolCommand());
         }

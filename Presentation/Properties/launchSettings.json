@@ -9,6 +9,16 @@
     }
   },
   "profiles": {
+    "Erp": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://185.172.56.30:7086",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
     "Development": {
       "commandName": "Project",
       "dotnetRunMessages": true,

@@ -23,10 +23,9 @@ public class CreateStudentCommand:IRequest<Result<StudentDto>>
     public string Password { get; set; }
     [Compare("Password")]
     public string ConfirmPassword { get; set; }
-
     public StudentStatus Status { get; set; }
-    public string? DepartmentId { get; set; } = null;
-    public List<string>? SubjectsId { get; set; } = null;
+    public string? DepartmentId { get; set; }
+    public List<string>? SubjectsId { get; set; }
     public class Validator:AbstractValidator<CreateStudentCommand>
     {
         public Validator()
@@ -55,7 +54,7 @@ public class CreateStudentCommand:IRequest<Result<StudentDto>>
         public IEnumerable<SwaggerExample<CreateStudentCommand>> GetExamples()
         {
             using var scope = _scopeFactory.CreateScope();
-            var applicationDbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var applicationDbContext = scope.ServiceProvider.GetRequiredService<IApplicationDbContext>();
             var departmentId = applicationDbContext.Departments.Select(x => x.Id).FirstOrDefault() ?? null;
             var subjectId = applicationDbContext.Subjects.Select(x => x.Id).FirstOrDefault() ?? null;
             var command=new CreateStudentCommand()

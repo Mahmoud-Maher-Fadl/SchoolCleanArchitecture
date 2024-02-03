@@ -15,6 +15,6 @@ public class SubjectConfiguration:BaseConfiguration<Domain.Model.Subject.Subject
         builder.HasOne(x => x.Instructor)
             .WithMany(x => x.Subjects)
             .HasForeignKey(x => x.InstructorId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }

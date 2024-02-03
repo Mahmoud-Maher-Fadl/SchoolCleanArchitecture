@@ -53,8 +53,9 @@ public class CreateInstructorCommand:IRequest<Result<InstructorDto>>
         public IEnumerable<SwaggerExample<CreateInstructorCommand>> GetExamples()
         {
             using var scope = _scopeFactory.CreateScope();
-            var applicationDbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            var username = applicationDbContext.Users.Select(x => x.UserName).FirstOrDefault() ?? string.Empty;
+            var adminContext = scope.ServiceProvider.GetRequiredService<IAdminContext>();
+            var applicationDbContext = scope.ServiceProvider.GetRequiredService<IApplicationDbContext>();
+            var username = adminContext.Tenants.Select(x => x.UserName).FirstOrDefault() ?? string.Empty;
             var departmentId = applicationDbContext.Departments.Select(x => x.Id).FirstOrDefault() ?? string.Empty;
             var command=new CreateInstructorCommand
             {

@@ -1,14 +1,13 @@
 ﻿using Domain.common;
-using Domain.Identity;
+using Domain.Tenant;
 
 namespace Domain.Model.Student;
 
 public class Student:BaseEntity
 {
     public StudentStatus StudentStatus;
-    public string? UserId { get; set; }
-    public User? User { get; set; }
-    public HashSet<string> SubjectsId = new HashSet<string>();
+    public string? DepartmentId { get; set; }
+    public Department.Department?  Department { get; set; }
     public HashSet<Subject.Subject> Subjects { get; set; } = new HashSet<Subject.Subject>();
 }
 

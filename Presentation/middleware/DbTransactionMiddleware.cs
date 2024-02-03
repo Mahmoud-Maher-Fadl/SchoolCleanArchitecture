@@ -1,40 +1,40 @@
-﻿using Infrastructure;
-using MediatR;
+﻿using Domain.common;
 using Microsoft.EntityFrameworkCore;
 
 namespace SchoolCleanArchitecture.middleware;
 
-public class DbTransactionMiddleware<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : IRequest<TResponse>
+public class DbTransactionMiddleware
 {
-    private readonly ApplicationDbContext _context;
+    private readonly RequestDelegate _next;
 
-    public DbTransactionMiddleware(ApplicationDbContext context)
+    public DbTransactionMiddleware(RequestDelegate next)
     {
-        _context = context;
+        _next = next;
     }
 
-    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
-        CancellationToken cancellationToken)
+    public async Task InvokeAsync(HttpContext httpContext, IApplicationDbContext context, IAdminContext adminContext)
     {
-        if (request.GetType().Name.Contains("Query"))
-            return await next();
-        var transaction = await _context.Database.BeginTransactionAsync(cancellationToken);
+        var transaction = await context.BeginTransactionAsync();
+        var adminTransaction = await adminContext.BeginTransactionAsync();
         try
-        {
-            var response = await next();
-            await _context.SaveChangesAsync(cancellationToken);
-            await transaction.CommitAsync(cancellationToken);
-            return response;
+        { 
+            await _next(httpContext);
+            if (httpContext.Response.StatusCode == 400)
+            {
+                await transaction.RollbackAsync();
+                await adminTransaction.RollbackAsync();
+                return;
+            }
+            await context.SaveChangesAsync();
+            await adminContext.SaveChangesAsync();
+
+            await transaction.CommitAsync();
+            await adminTransaction.CommitAsync();
         }
-        catch (DbUpdateException ex)
+        catch (DbUpdateException)
         {
-            await transaction.RollbackAsync(cancellationToken);
-            throw;
-        }
-        catch (Exception e)
-        {
-            await transaction.RollbackAsync(cancellationToken);
+            await transaction.RollbackAsync();
+            await adminTransaction.RollbackAsync();
             throw;
         }
     }

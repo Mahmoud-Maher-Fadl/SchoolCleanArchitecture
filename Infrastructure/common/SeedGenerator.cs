@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.common;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.common;
 
 public interface ISeedGenerator
 {
-    void Generate(ApplicationDbContext context);
+    void Generate(IApplicationDbContext context);
 }

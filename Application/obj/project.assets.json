@@ -301,7 +301,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Http/2.2.0": {
+      "Microsoft.AspNetCore.Http/2.2.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
@@ -1179,13 +1179,13 @@
           }
         }
       },
-      "Swashbuckle.AspNetCore.Filters/7.0.12": {
+      "Swashbuckle.AspNetCore.Filters/8.0.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.1.0",
           "Microsoft.OpenApi": "1.3.1",
           "Scrutor": "3.3.0",
-          "Swashbuckle.AspNetCore.Filters.Abstractions": "7.0.12",
+          "Swashbuckle.AspNetCore.Filters.Abstractions": "8.0.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "5.0.0"
         },
         "compile": {
@@ -1195,7 +1195,7 @@
           "lib/net5.0/Swashbuckle.AspNetCore.Filters.dll": {}
         }
       },
-      "Swashbuckle.AspNetCore.Filters.Abstractions/7.0.12": {
+      "Swashbuckle.AspNetCore.Filters.Abstractions/8.0.0": {
         "type": "package",
         "compile": {
           "lib/net5.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll": {}
@@ -2196,6 +2196,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Domain": "1.0.0",
+          "Microsoft.AspNetCore.Http": "2.2.2",
           "Microsoft.EntityFrameworkCore": "7.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.13"
         },
@@ -2487,16 +2488,16 @@
         "microsoft.aspnetcore.hosting.server.abstractions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http/2.2.0": {
-      "sha512": "YogBSMotWPAS/X5967pZ+yyWPQkThxhmzAwyCHCSSldzYBkW5W5d6oPfBaPqQOnSHYTpSOSOkpZoAce0vwb6+A==",
+    "Microsoft.AspNetCore.Http/2.2.2": {
+      "sha512": "BAibpoItxI5puk7YJbIGj95arZueM8B8M5xT1fXBn3hb3L2G3ucrZcYXv1gXdaroLbntUs8qeV8iuBrpjQsrKw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http/2.2.0",
+      "path": "microsoft.aspnetcore.http/2.2.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.xml",
-        "microsoft.aspnetcore.http.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
         "microsoft.aspnetcore.http.nuspec"
       ]
     },
@@ -3616,31 +3617,31 @@
         "scrutor.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore.Filters/7.0.12": {
-      "sha512": "nlf/Z3QuxRzLurmGzmL4QhV7K0RZCCXoPzvWNnCbPNV6R+CMrX3VEkViqn2yTcZafmNo83HQKYCGmCakdXRRsQ==",
+    "Swashbuckle.AspNetCore.Filters/8.0.0": {
+      "sha512": "NNqbgJ6OVatCv25DoPqQVgvPrddMTxMH0ZvtvUOAn+VkJAMmCi9FrodfjmLePqxE3GYN92fWakkmRRKsXyJu2A==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore.filters/7.0.12",
+      "path": "swashbuckle.aspnetcore.filters/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net5.0/Swashbuckle.AspNetCore.Filters.dll",
         "lib/netcoreapp3.1/Swashbuckle.AspNetCore.Filters.dll",
         "lib/netstandard2.0/Swashbuckle.AspNetCore.Filters.dll",
-        "swashbuckle.aspnetcore.filters.7.0.12.nupkg.sha512",
+        "swashbuckle.aspnetcore.filters.8.0.0.nupkg.sha512",
         "swashbuckle.aspnetcore.filters.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore.Filters.Abstractions/7.0.12": {
-      "sha512": "rYrsv+n2pRIKKquh6NfQCh9349xbMg+zgyKNXCwwxsfp5HvXrEOyZqYsjyJxfp08c0ApcUXafaRoSr/1pZwSZg==",
+    "Swashbuckle.AspNetCore.Filters.Abstractions/8.0.0": {
+      "sha512": "2uiigOH1820m7m21VbqsDjXqkov40fNxZGE2li/y13s92ndTwGzq744pAQLClN/thkTG0Cg7e6eZaQPZByR2cA==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore.filters.abstractions/7.0.12",
+      "path": "swashbuckle.aspnetcore.filters.abstractions/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net5.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll",
         "lib/netcoreapp3.1/Swashbuckle.AspNetCore.Filters.Abstractions.dll",
         "lib/netstandard2.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll",
-        "swashbuckle.aspnetcore.filters.abstractions.7.0.12.nupkg.sha512",
+        "swashbuckle.aspnetcore.filters.abstractions.8.0.0.nupkg.sha512",
         "swashbuckle.aspnetcore.filters.abstractions.nuspec"
       ]
     },
@@ -6426,7 +6427,7 @@
       "MediatR >= 11.1.0",
       "Microsoft.AspNetCore.Identity >= 2.2.0",
       "Microsoft.Extensions.Localization.Abstractions >= 8.0.0-rc.2.23480.2",
-      "Swashbuckle.AspNetCore.Filters >= 7.0.12"
+      "Swashbuckle.AspNetCore.Filters >= 8.0.0"
     ]
   },
   "packageFolders": {
@@ -6495,7 +6496,7 @@
           },
           "Swashbuckle.AspNetCore.Filters": {
             "target": "Package",
-            "version": "[7.0.12, )"
+            "version": "[8.0.0, )"
           }
         },
         "imports": [
@@ -6514,7 +6515,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }

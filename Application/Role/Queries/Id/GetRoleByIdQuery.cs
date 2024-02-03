@@ -30,7 +30,7 @@ public class GetRoleByIdQuery:IRequest<Result<RoleDto>>
             if (_scopeFactory is null) return;
 
             using var scope = _scopeFactory.CreateScope();
-            var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var dbContext = scope.ServiceProvider.GetRequiredService<IAdminContext>();
             var role = dbContext.Roles
                 .Select(x => x.Id)
                 .FirstOrDefault() ?? string.Empty;

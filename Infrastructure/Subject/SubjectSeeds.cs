@@ -1,11 +1,12 @@
-﻿using Infrastructure.common;
+﻿using Domain.common;
+using Infrastructure.common;
 using Newtonsoft.Json;
 
 namespace Infrastructure.Subject;
 
 public class SubjectSeeds:ISeedGenerator
 {
-    public void Generate(ApplicationDbContext context)
+    public void Generate(IApplicationDbContext context)
     {
         if (context.Subjects.Any())
             return;

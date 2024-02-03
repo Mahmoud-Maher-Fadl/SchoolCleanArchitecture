@@ -16,7 +16,7 @@ public class RoleRepo:IRoleRepo
     public async Task<RoleDto> GenerateRole(string roleName)
     {
         // Get the currently logged-in user's name from HttpContext
-        var userName = _httpContextAccessor.HttpContext?.User.FindFirst(nameof(Domain.Identity.User.UserName))?.Value;
+        var userName = _httpContextAccessor.HttpContext?.User.FindFirst(nameof(Domain.Tenant.Tenant.UserName))?.Value;
         var identityRole = new Domain.Role.Role()
         {
             CreatedBy=userName??"username is null",

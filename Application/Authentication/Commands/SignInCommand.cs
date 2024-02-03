@@ -24,11 +24,10 @@ public class SignInCommand : IRequest<Result<string>>
 
     public class Handler : IRequestHandler<SignInCommand, Result<string>>
     {
-        private readonly UserManager<Domain.Identity.User> _userManager;
+        private readonly UserManager<Domain.Tenant.Tenant> _userManager;
         private readonly IJwtRepo _jwtRepo;
 
-        public Handler(UserManager<Domain.Identity.User> userManager
-            , SignInManager<Domain.Identity.User> signInManager, IJwtRepo jwtRepo)
+        public Handler(UserManager<Domain.Tenant.Tenant> userManager, IJwtRepo jwtRepo)
         {
             _userManager = userManager;
             _jwtRepo = jwtRepo;
@@ -39,7 +38,7 @@ public class SignInCommand : IRequest<Result<string>>
             var user = await _userManager.Users
                 .FirstOrDefaultAsync(x => x.UserName == request.UserName, cancellationToken);
             if (user is null)
-                return Result.Failure<string>("User Doesn't Exist");
+                return Result.Failure<string>("Tenant Doesn't Exist");
             var signInResult = await _userManager.CheckPasswordAsync(user, request.Password);
             if (!signInResult)
                 return Result.Failure<string>("Incorrect Password");

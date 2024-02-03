@@ -11,11 +11,11 @@ namespace Application.Department.Commands.Delete;
 
 public class Handler:IRequestHandler<DeleteDepartmentCommand,Result<DepartmentDto>>
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IApplicationDbContext _context;
     private readonly IDepartmentRepository _departmentRepository;
     private readonly IStringLocalizer<SharedResources> _stringLocalizer;
 
-    public Handler(ApplicationDbContext context, IDepartmentRepository departmentRepository, IStringLocalizer<SharedResources> stringLocalizer)
+    public Handler(IApplicationDbContext context, IDepartmentRepository departmentRepository, IStringLocalizer<SharedResources> stringLocalizer)
     {
         _context = context;
         _departmentRepository = departmentRepository;

@@ -38,7 +38,7 @@ public class UpdateDepartmentCommand:IRequest<Result<DepartmentDto>>
         public IEnumerable<SwaggerExample<UpdateDepartmentCommand>> GetExamples()
         {
             using var scope = _scopeFactory.CreateScope();
-            var applicationDbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var applicationDbContext = scope.ServiceProvider.GetRequiredService<IApplicationDbContext>();
             var department = applicationDbContext.Departments.FirstOrDefault();
             yield return SwaggerExample.Create("example",department?.Adapt<UpdateDepartmentCommand>() ?? new UpdateDepartmentCommand());
         }

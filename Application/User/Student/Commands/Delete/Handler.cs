@@ -11,13 +11,13 @@ namespace Application.User.Student.Commands.Delete;
 
 public class Handler:IRequestHandler<DeleteStudentCommand,Result<StudentDto>>
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IApplicationDbContext _context;
     private readonly IStudentRepository _studentRepository;
         
     private readonly IStringLocalizer<SharedResources> _stringlocalizer;
 
 
-    public Handler(IStudentRepository studentRepository, ApplicationDbContext context, IStringLocalizer<SharedResources> stringlocalizer)
+    public Handler(IStudentRepository studentRepository, IApplicationDbContext context, IStringLocalizer<SharedResources> stringlocalizer)
     {
         _studentRepository = studentRepository;
         _context = context;

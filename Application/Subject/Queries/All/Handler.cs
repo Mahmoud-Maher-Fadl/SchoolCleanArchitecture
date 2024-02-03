@@ -11,9 +11,9 @@ namespace Application.Subject.Queries.All;
 
 public class Handler:IRequestHandler<GetSubjectsQuery,Result<PagingList<SubjectDto>>>
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IApplicationDbContext _context;
 
-    public Handler(ApplicationDbContext context)
+    public Handler(IApplicationDbContext context)
     {
         _context = context;
     }

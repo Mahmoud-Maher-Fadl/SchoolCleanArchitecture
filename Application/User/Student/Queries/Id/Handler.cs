@@ -1,4 +1,5 @@
-﻿using Application.User.Student.Dto;
+﻿/*
+using Application.User.Student.Dto;
 using Domain.common;
 using Infrastructure;
 using Mapster;
@@ -9,24 +10,25 @@ namespace Application.User.Student.Queries.Id;
 
 public class Handler:IRequestHandler<GetStudentByIdQuery,Result<StudentDto>>
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IAdminContext _context;
 
-    public Handler(ApplicationDbContext context)
+    public Handler(IAdminContext context)
     {
         _context = context;
     }
 
     public async Task<Result<StudentDto>> Handle(GetStudentByIdQuery request, CancellationToken cancellationToken)
     {
-        var student = await _context.Users
+        var student = await _context.Tenants
             .Where(x => x.Id == request.Id)
-            .Include(x => x.Department)
-            .Include(x => x.Student)
-            .ThenInclude(x=>x.Subjects)
-            .ProjectToType<StudentDto>()
+            .Include(x=>x.Student)
+            .ThenInclude(x=>x.Department)
+            .Include(x=>x.Student)
+            .ThenInclude(x=>x.Subjects).ProjectToType<StudentDto>()
             .FirstOrDefaultAsync(cancellationToken);
         return student is null
             ? Result.Failure<StudentDto>("Instructor not found")
             : student.AsSuccessResult();
     }
 }
+*/

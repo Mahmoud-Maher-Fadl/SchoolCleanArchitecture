@@ -30,7 +30,7 @@ public class GetInstructorByIdQuery:IRequest<Result<InstructorDto>>
             if (_scopeFactory is null) return;
 
             using var scope = _scopeFactory.CreateScope();
-            var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var dbContext = scope.ServiceProvider.GetRequiredService<IApplicationDbContext>();
             var instructor = dbContext.Instructors
                 .Select(x => x.Id)
                 .FirstOrDefault() ?? string.Empty;

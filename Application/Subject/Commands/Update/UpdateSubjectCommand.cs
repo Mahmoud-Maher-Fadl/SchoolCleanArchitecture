@@ -39,7 +39,7 @@ public class UpdateSubjectCommand:IRequest<Result<SubjectDto>>
         public IEnumerable<SwaggerExample<UpdateSubjectCommand>> GetExamples()
         {
             using var scope = _scopeFactory.CreateScope();
-            var applicationDbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var applicationDbContext = scope.ServiceProvider.GetRequiredService<IApplicationDbContext>();
             var subject = applicationDbContext.Subjects.FirstOrDefault();
             yield return SwaggerExample.Create("example",subject?.Adapt<UpdateSubjectCommand>() ?? new UpdateSubjectCommand());
         }

@@ -31,7 +31,7 @@ public class GetStudentByIdQuery:IRequest<Result<StudentDto>>
             if (_scopeFactory is null) return;
 
             using var scope = _scopeFactory.CreateScope();
-            var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var dbContext = scope.ServiceProvider.GetRequiredService<IApplicationDbContext>();
             var student = dbContext.Students
                 .Select(x => x.Id)
                 .FirstOrDefault() ?? string.Empty;

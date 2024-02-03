@@ -1,6 +1,6 @@
 ﻿namespace Application.User.Dto;
 
-public class UserDto//:Domain.Identity.User
+public class UserDto//:Domain.Identity.Tenant
 {
     public string Id { get; set; }
     public string FirstName { get; set; }

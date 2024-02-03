@@ -1,4 +1,5 @@
-﻿using Application.User.Student.Dto;
+﻿/*
+using Application.User.Student.Dto;
 using Domain.common;
 using Infrastructure;
 using Mapster;
@@ -10,18 +11,20 @@ namespace Application.User.Student.Commands.Update;
 
 public class Handler:IRequestHandler<UpdateStudentCommand,Result<StudentDto>>
 {
-    private readonly ApplicationDbContext _context;
-    private readonly UserManager<Domain.Identity.User> _userManager;
+    private readonly IAdminContext _adminContext;
+    private readonly IApplicationDbContext _context;
+    private readonly UserManager<Domain.Tenant.Tenant> _userManager;
 
-    public Handler(ApplicationDbContext context, UserManager<Domain.Identity.User> userManager)
+    public Handler(IApplicationDbContext context, UserManager<Domain.Tenant.Tenant> userManager, IAdminContext adminContext)
     {
         _context = context;
         _userManager = userManager;
+        _adminContext = adminContext;
     }
 
     public async Task<Result<StudentDto>> Handle(UpdateStudentCommand request, CancellationToken cancellationToken)
     {
-        var student = await _context.Users
+        var student = await _adminContext.Tenants
             .Include(user => user.Student)
             .FirstOrDefaultAsync(s=>s.Id == request.Id, cancellationToken);
         if(student is null)
@@ -55,3 +58,4 @@ public class Handler:IRequestHandler<UpdateStudentCommand,Result<StudentDto>>
 
     }
 }
+*/

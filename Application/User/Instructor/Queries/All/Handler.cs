@@ -1,26 +1,28 @@
-﻿using Application.User.Instructor.Dto;
+﻿/*
+using Application.User.Instructor.Dto;
 using Domain.common;
 using Infrastructure;
 using Mapster;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Type = Domain.Identity.Type;
+using Type = Domain.Tenant.Type;
 
 namespace Application.User.Instructor.Queries.All;
 public class Handler:IRequestHandler<GetInstructorsQuery,Result<List<InstructorDto>>>
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IAdminContext _context;
 
-    public Handler(ApplicationDbContext context)
+    public Handler(IAdminContext context)
     {
         _context = context;
     }
 
     public async Task<Result<List<InstructorDto>>> Handle(GetInstructorsQuery request, CancellationToken cancellationToken)
     {
-        var instructors = await _context.Users
+        var instructors = await _context.Tenants
             .Where(x=>x.Type==Type.Instructor)
-            .Include(x=>x.Department)
+            .Include(x=>x.Instructor)
+            .ThenInclude(x=>x.Department)
             .Include(x=>x.Instructor)
             .ThenInclude(x=>x.Subjects)
             .ToListAsync(cancellationToken);
@@ -28,3 +30,4 @@ public class Handler:IRequestHandler<GetInstructorsQuery,Result<List<InstructorD
 
     }
 }
+*/

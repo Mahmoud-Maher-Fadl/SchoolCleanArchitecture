@@ -12,10 +12,10 @@ namespace Application.Department.Queries.All;
 
 public class Handler:IRequestHandler<GetDepartmentsQuery,Result<PagingList<DepartmentDto>>>
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IApplicationDbContext _context;
     private readonly IDepartmentRepository _departmentRepository;
 
-    public Handler(ApplicationDbContext context, IDepartmentRepository departmentRepository)
+    public Handler(IApplicationDbContext context, IDepartmentRepository departmentRepository)
     {
         _context = context;
         _departmentRepository = departmentRepository;
@@ -59,7 +59,7 @@ public class Handler:IRequestHandler<GetDepartmentsQuery,Result<PagingList<Depar
            DepartmentsOrderingEnum.Name=>"Name",
            _ => "CreateDate"
         };
-        var depts = await _departmentRepository.GetAllAsync(d => d.Users!, d => d.Subjects!);
+        var depts = await _departmentRepository.GetAllAsync(d => d.Instructors!,d=>d.Students, d => d.Subjects!);
         var departments =await _context.Departments
             .Where(s=>s.Name.Contains(request.Search))
             .OrderBy(( d) => EF.Property<object>(d, filter))

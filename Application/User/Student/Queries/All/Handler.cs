@@ -1,21 +1,21 @@
-﻿using Application.Common;
+﻿/*
+using Application.Common;
 using Application.Enums;
 using Application.User.Student.Dto;
 using Domain.common;
-using Infrastructure;
 using Mapster;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Type = Domain.Identity.Type;
+using Type = Domain.Tenant.Type;
 
 namespace Application.User.Student.Queries.All;
 public class Handler:IRequestHandler<GetStudentsQuery,Result<PagingList<StudentDto>>>
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IAdminContext _adminContext;
 
-    public Handler(ApplicationDbContext context)
+    public Handler(IAdminContext adminContext)
     {
-        _context = context;
+        _adminContext = adminContext;
     }
 
     public async Task<Result<PagingList<StudentDto>>> Handle(GetStudentsQuery request, CancellationToken cancellationToken)
@@ -28,11 +28,12 @@ public class Handler:IRequestHandler<GetStudentsQuery,Result<PagingList<StudentD
             StudentsOrderingEnum.EducationLevel=>"EducationLevel",
             _ => "CreateDate"
         };
-        var students = await _context.Users
+        var students = await _adminContext.Tenants
             .Where(s=>s.UserName != null 
                       && (string.IsNullOrEmpty(request.Search) || s.UserName.Contains(request.Search))
                       && s.Type==Type.Student)
-            .Include(x=>x.Department)
+            .Include(x=>x.Student)
+            .ThenInclude(x=>x.Department)
             .Include(x=>x.Student)
             .ThenInclude(x=>x.Subjects)
 //            .OrderByDescending( d => EF.Property<object>(d, filter))
@@ -42,3 +43,4 @@ public class Handler:IRequestHandler<GetStudentsQuery,Result<PagingList<StudentD
         return new PagingList<StudentDto>(students.Adapt<List<StudentDto>>(), request.Page, request.PageSize,request.Search,request.OrderBy).AsSuccessResult();
     }
 }
+*/

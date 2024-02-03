@@ -8,9 +8,9 @@ public class InstructorConfiguration:BaseConfiguration<Domain.Model.Instructor.I
 {
     protected override void Configure(EntityTypeBuilder<Domain.Model.Instructor.Instructor> builder, string tableName)
     {
-        builder.HasOne(x => x.User)
-            .WithOne(c => c.Instructor)
-            .HasForeignKey<Domain.Model.Instructor.Instructor>(x => x.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
+        builder.HasOne(s => s.Department)
+            .WithMany(d => d.Instructors)
+            .HasForeignKey(s => s.DepartmentId)
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }

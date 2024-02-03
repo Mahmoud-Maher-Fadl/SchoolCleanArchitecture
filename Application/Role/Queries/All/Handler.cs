@@ -11,9 +11,9 @@ namespace Application.Role.Queries.All;
 
 public class Handler:IRequestHandler<GetRolesQuery,Result<List<RoleDto>>>
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IAdminContext _context;
 
-    public Handler(ApplicationDbContext context)
+    public Handler(IAdminContext context)
     {
         _context = context;
     }

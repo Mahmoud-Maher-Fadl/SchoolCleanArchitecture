@@ -1,4 +1,4 @@
-﻿using Application.User.Student.Dto;
+﻿/*using Application.User.Student.Dto;
 using Domain.common;
 using Domain.Model.Student;
 using Infrastructure;
@@ -6,19 +6,21 @@ using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Type = Domain.Identity.Type;
+using Type = Domain.Tenant.Type;
 
 namespace Application.User.Student.Commands.Create;
 
 public class Handler : IRequestHandler<CreateStudentCommand, Result<StudentDto>>
 {
-    private readonly ApplicationDbContext _context;
-    private readonly UserManager<Domain.Identity.User> _userManager;
+    private readonly IApplicationDbContext _context;
+    private readonly IAdminContext _adminContext;
+    private readonly UserManager<Domain.Tenant.Tenant> _userManager;
 
-    public Handler(ApplicationDbContext context, UserManager<Domain.Identity.User> userManager)
+    public Handler(IApplicationDbContext context, UserManager<Domain.Tenant.Tenant> userManager, IAdminContext adminContext)
     {
         _context = context;
         _userManager = userManager;
+        _adminContext = adminContext;
     }
 
     public async Task<Result<StudentDto>> Handle(CreateStudentCommand request, CancellationToken cancellationToken)
@@ -29,7 +31,7 @@ public class Handler : IRequestHandler<CreateStudentCommand, Result<StudentDto>>
 
         var isExistUserName = await _userManager.FindByNameAsync(request.UserName);
         if (isExistUserName is not null)
-            return Result.Failure<StudentDto>($"This User Name {request.UserName} Is Already Used");
+            return Result.Failure<StudentDto>($"This Tenant Name {request.UserName} Is Already Used");
 
         if (request.DepartmentId is not null)
         {
@@ -48,7 +50,7 @@ public class Handler : IRequestHandler<CreateStudentCommand, Result<StudentDto>>
             }
         }
 
-        var user = request.Adapt<Domain.Identity.User>();
+        var user = request.Adapt<Domain.Tenant.Tenant>();
         user.Student = request.Adapt<Domain.Model.Student.Student>();
         var subjects = await _context.Subjects
             .Where(x => request.SubjectsId.Contains(x.Id))
@@ -63,12 +65,12 @@ public class Handler : IRequestHandler<CreateStudentCommand, Result<StudentDto>>
         {
             foreach (var roleId in request.Roles)
             {
-                var role = await _context.Roles.FindAsync(roleId);
+                var role = await _adminContext.Roles.FindAsync(roleId);
                 if (role is null)
                     return Result.Failure<StudentDto>($"Invalid Role Id :{roleId} ");
             }
 
-            var roles = await _context.Roles.Where(x => request.Roles
+            var roles = await _adminContext.Roles.Where(x => request.Roles
                 .Contains(x.Id)).ToArrayAsync(cancellationToken);
             var rolesResult = await _userManager.AddToRolesAsync(user, roles.Select(x => x.Name)!);
             return rolesResult.Succeeded
@@ -78,4 +80,4 @@ public class Handler : IRequestHandler<CreateStudentCommand, Result<StudentDto>>
 
         return user.Adapt<StudentDto>().AsSuccessResult();
     }
-}
+}*/

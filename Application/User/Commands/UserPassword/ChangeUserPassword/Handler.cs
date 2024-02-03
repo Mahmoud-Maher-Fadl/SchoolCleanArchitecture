@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Identity;
 namespace Application.User.Commands.UserPassword.ChangeUserPassword;
 public class Handler:IRequestHandler<ChangeUserPasswordCommand,Result<UserDto>>
 {
-    private readonly UserManager<Domain.Identity.User> _userManager;
-    private readonly IPasswordHasher<Domain.Identity.User> _passwordHasher;
+    private readonly UserManager<Domain.Tenant.Tenant> _userManager;
+    private readonly IPasswordHasher<Domain.Tenant.Tenant> _passwordHasher;
 
-    public Handler(UserManager<Domain.Identity.User> userManager, IPasswordHasher<Domain.Identity.User> passwordHasher)
+    public Handler(UserManager<Domain.Tenant.Tenant> userManager, IPasswordHasher<Domain.Tenant.Tenant> passwordHasher)
     {
         _userManager = userManager;
         _passwordHasher = passwordHasher;
@@ -20,7 +20,7 @@ public class Handler:IRequestHandler<ChangeUserPasswordCommand,Result<UserDto>>
     {
         var user = await _userManager.FindByNameAsync(request.UserName);
         if (user is null)
-            return Result.Failure<UserDto>("User With This User Name Not Found");
+            return Result.Failure<UserDto>("Tenant With This Tenant Name Not Found");
         var result=await _userManager.ChangePasswordAsync(user, request.OldPassword, request.NewPassword);
         return result.Succeeded
             ? user.Adapt<UserDto>().AsSuccessResult()

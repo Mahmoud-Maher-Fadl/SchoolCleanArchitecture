@@ -12,11 +12,11 @@ namespace Application.Subject.Commands.Delete;
 
 public class Handler:IRequestHandler<DeleteSubjectCommand,Result<SubjectDto>>
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IApplicationDbContext _context;
     private readonly ISubjectRepository _subjectRepository;
     private readonly IStringLocalizer<SharedResources> _stringLocalizer;
 
-    public Handler(ApplicationDbContext context, ISubjectRepository subjectRepository, IStringLocalizer<SharedResources> stringLocalizer)
+    public Handler(IApplicationDbContext context, ISubjectRepository subjectRepository, IStringLocalizer<SharedResources> stringLocalizer)
     {
         _context = context;
         _subjectRepository = subjectRepository;

@@ -8,10 +8,10 @@ using MediatR;
 namespace Application.User.Instructor.Commands.Delete;
 public class Handler:IRequestHandler<DeleteInstructorCommand,Result<InstructorDto>>
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IApplicationDbContext _context;
     private readonly IInstructorRepository _instructorRepository;
 
-    public Handler(ApplicationDbContext context, IInstructorRepository instructorRepository)
+    public Handler(IApplicationDbContext context, IInstructorRepository instructorRepository)
     {
         _context = context;
         _instructorRepository = instructorRepository;
